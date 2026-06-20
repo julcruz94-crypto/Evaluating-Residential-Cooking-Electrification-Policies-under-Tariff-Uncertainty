@@ -1,0 +1,1451 @@
+%% Copyright 2007, 2008, 2009 Elsevier Ltd
+%%
+%% This file is part of the 'Elsarticle Bundle'.
+%% ---------------------------------------------
+%%
+%% It may be distributed under the conditions of the LaTeX Project Public
+%% License, either version 1.2 of this license or (at your option) any
+%% later version.  The latest version of this license is in
+%%    http://www.latex-project.org/lppl.txt
+%% and version 1.2 or later is part of all distributions of LaTeX
+%% version 1999/12/01 or later.
+%%
+%% The list of all files belonging to the 'Elsarticle Bundle' is
+%% given in the file `manifest.txt'.
+%%
+
+%% Template article for Elsevier's document class `elsarticle'
+%% with numbered style bibliographic references
+%% SP 2008/03/01
+%%
+%%
+%%
+%% $Id: elsarticle-template-num.tex 4 2009-10-24 08:22:58Z rishi $
+%%
+%%
+%% \documentclass[preprint,5p,onecolumn,authoryear]{elsarticle}
+\documentclass[authoryear,preprint,review,10pt]{elsarticle}
+%% Use the option review to obtain double line spacing
+%% \documentclass[preprint,review,12pt]{elsarticle}
+
+%% Use the options 1p,twocolumn; 3p; 3p,twocolumn; 5p; or 5p,twocolumn
+%% for a journal layout:
+%% \documentclass[final,1p,times]{elsarticle}
+%% \documentclass[final,1p,times,twocolumn]{elsarticle}
+%% \documentclass[final,3p,times]{elsarticle}
+
+%% \documentclass[authoryear,final,3p,times,twocolumn]{elsarticle}
+
+%% \documentclass[final,5p,times]{elsarticle}
+%% \documentclass[final,5p,times,twocolumn]{elsarticle}
+
+%% if you use PostScript figures in your article
+%% use the graphics package for simple commands
+%% \usepackage{graphics}
+%% or use the graphicx package for more complicated commands
+%% \usepackage{graphicx}
+%% or use the epsfig package if you prefer to use the old commands
+%% \usepackage{epsfig}
+
+%% The amssymb package provides various useful mathematical symbols
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{eurosym} % para el euro
+%% The amsthm package provides extended theorem environments
+%% \usepackage{amsthm}
+\usepackage[hyphens]{url}
+\usepackage{hyperref}
+\hypersetup{colorlinks,
+%citecolor=blue
+}
+\usepackage{rotating}
+\usepackage{ulem} % Paquete para tachar texto
+\usepackage{geometry}
+\usepackage{adjustbox}
+\geometry{margin=1in}
+\usepackage{longtable}
+\usepackage{framed} % Framing content
+\usepackage{multicol} % Multiple columns environment
+\usepackage{nomencl} % Nomenclature package
+\usepackage{mathtools}
+\usepackage{cuted}
+\makenomenclature
+\setlength{\nomitemsep}{-\parskip} % Baseline skip between items
+\DeclareMathOperator*{\argmax}{argmax}
+\usepackage{array,multirow,booktabs}
+\usepackage{makecell}
+\renewcommand{\cellalign}{bl}
+\usepackage{siunitx}
+\usepackage{threeparttable}
+
+\usepackage{breqn}
+\usepackage{amsmath}
+%\usepackage{showframe}
+\usepackage{threeparttable}
+%\usepackage{setspace}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}    
+    
+\usepackage{natbib}
+\usepackage{soul,color}
+\soulregister\cite7
+\soulregister\ref7
+\soulregister\pageref7
+\usepackage{textcomp}
+\usepackage{gensymb}
+\usepackage{caption}
+\usepackage{boldline} 
+\captionsetup[figure]{name={\textbf{Fig.}}, labelfont=bf, justification=centering}
+\captionsetup[table]{justification=raggedright,  labelsep=newline, singlelinecheck=false, labelfont=bf}
+\usepackage{subcaption}
+\usepackage[ruled,vlined]{algorithm2e}
+\usepackage{lscape} 
+\usepackage{longtable} 
+
+\renewcommand*\nompreamble{\begin{multicols}{2}}
+\renewcommand*\nompostamble{\end{multicols}}
+    
+%% The lineno packages adds line numbers. Start line numbering with
+%% \begin{linenumbers}, end it with \end{linenumbers}. Or switch it on
+%% for the whole article with \linenumbers after \end{frontmatter}.
+%% \usepackage{lineno}
+
+%% natbib.sty is loaded by default. However, natbib options can be
+%% provided with \biboptions{...} command. Following options are
+%% valid:
+
+%%   round  -  round parentheses are used (default)
+%%   square -  square brackets are used   [option]
+%%   curly  -  curly braces are used      {option}
+%%   angle  -  angle brackets are used    <option>
+%%   semicolon  -  multiple citations separated by semi-colon
+%%   colon  - same as semicolon, an earlier confusion
+%%   comma  -  separated by comma
+%%   numbers-  selects numerical citations
+%%   super  -  numerical citations as superscripts
+%%   sort   -  sorts multiple citations according to order in ref. list
+%%   sort&compress   -  like sort, but also compresses numerical citations
+%%   compress - compresses without sorting
+%%
+%% \biboptions{comma,round}
+
+% \biboptions{}
+\usepackage{ulem}
+
+\journal{Energy Policy}
+
+\begin{document}
+
+\begin{frontmatter}
+
+\title{Evaluating Residential Cooking Electrification Policies under Tariff Uncertainty: A Case Study of Bogotá, Colombia}
+
+\author[label1]{Julio C. Cruz\corref{cor1}}
+\cortext[cor1]{Corresponding author}
+\address[label1]{Department of Industrial Engineering, University of Los Andes,  Cra 1 Este No 19A-40, Bogot\'a, Colombia}
+\ead{jc.cruz412@uniandes.edu.co}
+
+\author[label1]{Sergio Cabrales}
+\ead{s-cabral@uniandes.edu.co}
+
+\begin{abstract}
+Residential cooking electrification can reduce greenhouse gas (GHG) emissions, but its economic and fiscal performance remains uncertain when household energy prices depend on regulated tariffs, cross-subsidies, and volatile macroeconomic drivers. This is relevant in Colombia, where residential energy tariffs follow those conditions.
+
+This paper proposes a stochastic, regulation-aligned framework to evaluate replacing gas stoves with electric induction cooktops. The methodology combines Monte Carlo simulation of key tariff drivers, elasticity-based adjustment of per-user demand, and regulated pricing formulas defined by the Colombian energy regulator (CREG). Outcomes are assessed through total cost of ownership (TCO), GHG emissions, fiscal-impact accounting, and marginal abatement cost curves (MACC).
+
+Applied to Bogotá, results show that cooking electrification is a negative-cost mitigation option across all socioeconomic strata under the modeled assumptions. Expected household savings range from USD 253 in Stratum 1 to USD 2,532 in Stratum 6 over ten years, while stochastic marginal abatement costs remain negative across strata. The aggregate stochastic fiscal effect is also favorable, with expected savings of USD 538 million, mainly from avoided gas subsidies in lower-income households. Under 50\% and 100\% imported-gas scenarios, the economic and fiscal case strengthens as the business-as-usual gas-cooking alternative becomes more expensive.
+
+The findings support targeted policy focused on appliance financing and household adaptation, rather than permanent electricity-tariff subsidies. Avoided gas-subsidy burdens could partly finance the transition, while cross-subsidies are gradually recalibrated as gas demand shifts to electricity. Under higher gas-import dependence, electrification also reduces household exposure to future gas-price shocks.
+\end{abstract}
+
+\begin{keyword}
+Electrification \sep Stochastic simulation \sep Regulated energy tariffs \sep Total cost of ownership (TCO) \sep Marginal abatement cost (MAC)
+
+%% keywords here, in the form: keyword \sep keyword
+
+%% MSC codes here, in the form: \MSC code \sep code
+%% or \MSC[2008] code \sep code (2000 is the default)
+\end{keyword}
+
+\end{frontmatter}
+
+%%
+%% Start line numbering here if you want
+%%
+% \linenumbers
+
+%% main text
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+\label{introduction}
+
+Human-induced climate change requires deep reductions in greenhouse gas (GHG) emissions across energy and end-use sectors \citep{ipcc_ar6_syr_2023}. Since the energy sector accounts for a large share of global emissions, mitigation strategies must combine power-sector decarbonization with changes in final energy demand \citep{iea_co2_emissions_2023,wri_ghg_2023}. In the residential sector, cooking remains a relevant end-use because it still relies heavily on direct fossil-fuel combustion in many countries.
+
+Electrification of final energy demand has attracted increasing attention because it enables replacing direct fossil-fuel use with electricity, especially as power systems incorporate lower-carbon generation sources \citep{NREL_electrification_enduse_2017}. Among residential end-uses, cooking is particularly relevant because it combines climate, health, affordability, and energy-policy concerns. Gas cooking is associated with indoor air pollutants and respiratory risks, while electric cooking eliminates combustion at the point of use \citep{dennekamp2001,kornartit2010,to2011,dai2021}. From an environmental perspective, electric cooking can reduce cooking-related emissions, although the magnitude of the benefit depends on the electricity mix, appliance efficiency, and household behavior \citep{yangka2016,im2020,lee2021,bandekar2022}.
+
+Despite these advantages, the economic feasibility of large-scale cooking electrification remains uncertain. Adoption decisions depend on upfront investment costs, operating expenditures, household liquidity constraints, and regulatory conditions. In regulated markets, these outcomes are further shaped by tariff formulas, subsidies, contributions, and macroeconomic indexation, so electrification cannot be assessed only by comparing average gas and electricity prices.
+
+Existing tools such as total cost of ownership (TCO) and marginal abatement cost curves (MACC) are useful for comparing technology costs and mitigation performance \citep{cabrales2023costos,cimini2022,floess2023}. However, most applications rely on deterministic assumptions about prices, demand, and policy variables. This limits their ability to evaluate how regulated tariff dynamics affect private savings, emissions reductions, fiscal impacts, and marginal abatement costs. This paper therefore asks: How can a regulation-consistent stochastic framework improve the evaluation of residential cooking electrification and inform policy design under tariff uncertainty, cross-subsidy schemes, and socioeconomic heterogeneity?
+
+This policy question is aligned with Sustainable Development Goal 7 (SDG~7), which calls for affordable, reliable, sustainable, and modern energy for all \citep{un_sdg7}. In this paper, cooking electrification is evaluated as a potential policy instrument to improve affordability, reduce emissions, and increase household energy-service efficiency under regulated tariff conditions.
+
+Colombia provides a relevant setting for analyzing this problem. Natural gas plays a central role in residential cooking, with more than 10 million households depending on gas stoves, and a full transition to electric cooking would require investments on the order of USD 4.6 billion \citep{cabrales2025precio_gas}. This transition would occur within a regulated and stratified tariff system, where both gas and electricity prices are defined by CREG formulas \citep{CREG119_2007,CREG137_2013,CREG183_2013,CREG184_2014}, indexed to macroeconomic variables, and affected by cross-subsidy rules across socioeconomic strata \citep{cabrales2023costos}.
+
+The Colombian case also has an energy-security dimension. Recent evidence suggests that declining domestic gas availability and increasing dependence on imports may increase future tariff pressure and supply risks \citep{ramirez2025macro_gas,cabrales2025politica_gas}. In Bogotá, imported-gas scenarios imply residential gas-tariff increases of 44.6\% and 89.3\% under 50\% and 100\% import dependence, respectively \citep{cabrales2025fedesarrollo_gas_imports}. These scenarios provide a stress test for evaluating whether cooking electrification remains attractive as gas supply becomes more import dependent.
+
+The framework is used to assess whether cooking electrification should be promoted through targeted appliance and household adaptation support rather than permanent electricity-tariff subsidies, and whether the cross-subsidy scheme should be gradually recalibrated as residential gas demand is displaced. The approach combines Monte Carlo simulation, TCO, GHG emissions accounting, fiscal-impact estimation, and MAC analysis to evaluate the private, environmental, and public-finance implications of replacing gas stoves with induction cooktops in Bogotá.
+
+This paper makes three contributions. First, it develops a regulation-consistent stochastic framework that links tariff components, macroeconomic drivers, and regulated pricing formulas to household-level electrification outcomes. Second, it integrates this tariff representation with TCO, GHG emissions, fiscal-impact accounting, and MAC indicators. Third, it shows how the framework can inform cooking-electrification policy by identifying household savings, emissions reductions, marginal abatement costs, and fiscal effects across socioeconomic strata.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Literature review}
+\label{literature}
+
+The assessment of residential cooking electrification draws on several strands of literature directly relevant to energy-policy design: clean cooking and household impacts, environmental performance, techno-economic evaluation, regulated tariffs and fiscal implications, and uncertainty in household energy-transition assessments. Rather than treating these strands as independent topics, this review connects them to the central policy-methodological gap addressed in this paper: the need to evaluate cooking electrification under regulated tariffs, socioeconomic heterogeneity, and uncertainty.
+
+Residential cooking electrification has been studied as a clean-cooking strategy with potential health, environmental, and energy-efficiency benefits. From a health perspective, there is consistent evidence linking gas-based cooking with poor indoor air quality. Gas combustion has been associated with increased indoor nitrogen dioxide exposure \citep{dennekamp2001}. Other studies report higher levels of particulate matter and volatile organic compounds in households using gas stoves compared with households using electric stoves \citep{kornartit2010,to2011}. These pollutants are associated with respiratory risks and adverse health outcomes. In contrast, electric cooking eliminates combustion at the point of use and reduces exposure to combustion-related pollutants. Empirical studies report improvements in respiratory outcomes among households without combustion-based cooking \citep{dai2021}. Evidence from large-scale cookstove replacement programs also shows reductions in respiratory-related hospitalizations after the adoption of electric cooking technologies \citep{gould2023}. These findings establish an important household-level motivation for replacing gas stoves with electric alternatives.
+
+From an environmental perspective, electric cooking can reduce cooking-related emissions, although the magnitude of the benefit depends on the electricity mix, appliance efficiency, and household behavior. Evidence from Bhutan shows reductions in CO$_2$, SO$_2$, and NO$_x$ under hydropower-based systems \citep{yangka2016}. Scenario results for Korea show reductions in cooking-related emissions under wider adoption of electric cooking \citep{im2020}. Life-cycle assessment evidence indicates that the environmental performance of electric cooking depends strongly on the carbon intensity of electricity generation \citep{lee2021}. Other comparative assessments emphasize the role of appliance efficiency and user behavior in shaping life-cycle environmental outcomes \citep{bandekar2022}. Recent evidence also suggests that electric cooking technologies can substantially reduce GHG emissions relative to traditional fuels \citep{scott2024energy}. At the household level, previous studies report sizable differences between gas and electric cooking emissions. For example, \citet{im2020} estimate lower cooking-related emissions under scenarios of electric cooking adoption, while \citet{dagnachew2020scenario} report household-level differences in emissions across cooking technologies and access pathways. At the system level, transitions to clean cooking can also reduce aggregate emissions, although results depend on the electricity mix and adoption pathway \citep{dagnachew2020scenario}. These findings provide the physical basis for evaluating cooking electrification as a mitigation option.
+
+The economic feasibility of cooking electrification is commonly assessed through cost-benefit analysis, total cost of ownership (TCO), and marginal abatement cost approaches. A consistent finding in the literature is that household cooking costs are strongly influenced by operating expenditures rather than by appliance costs alone. For example, \citet{dagnachew2020scenario} show that although capital costs differ across stove technologies, annual fuel expenditures dominate long-term household cooking costs. This implies that economic viability depends on the interaction between appliance efficiency, energy prices, and household consumption. The TCO framework, originally developed in procurement theory by \citet{ellram1994taxonomy}, provides a useful structure for evaluating these trade-offs because it accounts for acquisition, operation, maintenance, and replacement costs over time. In household energy applications, this perspective is particularly relevant because a technology with higher upfront cost may still be economically attractive if it reduces operating expenditures over its lifetime. For cooking electrification, TCO therefore offers a more complete representation of household decision-making than comparisons based only on appliance prices or current tariffs.
+
+Marginal abatement cost curves (MACCs) complement TCO analysis by relating incremental costs to emissions reductions. MACC analysis is especially useful for distinguishing between mitigation options that require additional expenditures and those that reduce emissions while also lowering private costs. However, conventional MACC applications often rely on deterministic inputs. Costs, emissions, and abatement potentials are usually represented as single values, which limits their capacity to capture uncertainty in prices, demand, technology performance, and policy variables. This limitation is particularly relevant for household energy transitions, where small changes in tariffs or consumption can alter the magnitude of cost savings and abatement costs. Evidence from life-cycle and scenario-based studies also shows that the environmental performance of residential electrification depends on local conditions. Life-cycle assessments in Europe show that environmental benefits depend strongly on the carbon intensity of the electricity mix \citep{cimini2022}. Scenario analyses for developing regions indicate that electrification can significantly reduce PM$_{2.5}$ and CO$_2$ emissions, while adoption depends on income, infrastructure, and behavioral factors \citep{floess2023}. These studies reinforce the need to evaluate cooking electrification using context-specific assumptions rather than transferring results directly across countries.
+
+In regulated energy systems, the private economics of electrification cannot be separated from tariff design. Residential energy prices are often determined by regulatory formulas rather than by purely competitive markets. As a result, household energy expenditures depend not only on technology performance and consumption, but also on tariff components, indexation rules, subsidies, and contributions. This distinction is essential for policy evaluation because private household savings may coexist with fiscal costs or losses in contribution revenues. The Colombian case illustrates this issue clearly. \citet{cabrales2023costos} provide a detailed assessment of cooking electrification under Colombia's tariff structure and show that electrification can yield negative incremental private costs, with savings that vary by city and socio-economic stratum. The same study also estimates the aggregate investment required for a national-scale transition and evaluates the interaction between electrification and the existing subsidy system \citep{cabrales2023costos}. Complementary work by \citet{cabrales2025subsidios_gas} further emphasizes the role of gas subsidies and distributional effects in shaping the policy implications of cooking electrification.
+
+From a fiscal perspective, previous evidence shows that cooking electrification can reduce gas subsidies while increasing electricity-related fiscal exposure, resulting in a net fiscal cost under some national-level assumptions \citep{cabrales2023costos}. From an environmental perspective, previous Colombian assessments report substantial emissions reductions per household and at the national level \citep{cabrales2025subsidios_gas}. Taken together, these findings emphasize a central policy trade-off: electrification can reduce emissions and generate private savings, while also creating fiscal and distributional pressures under existing cross-subsidy schemes. This distinction is particularly relevant in Colombia because residential tariffs are shaped by socioeconomic stratification. Lower-income households receive subsidies, while higher-income households pay contributions. Therefore, the effect of cooking electrification depends not only on the average cost difference between gas and electricity, but also on how the transition changes subsidy requirements and contribution revenues across strata. Any policy-oriented assessment must therefore evaluate private costs, emissions, and fiscal effects jointly.
+
+Modeling household energy transitions also requires accounting for uncertainty in prices, demand, and macroeconomic variables. Previous studies have used machine-learning techniques such as LSBoost for energy price forecasting \citep{su2019data}. Hybrid ARIMA--GARCH models have been applied to represent energy-price dynamics and volatility \citep{tan2010day}. Time-series approaches such as ARIMA and VAR have also been used for macroeconomic and price forecasting applications \citep{khamis2020,rosales2017,babu2015}. On the demand side, gas consumption has been modeled using approaches such as the Polynomial Curve and Moving Average Combination Projection method \citep{xu2010forecasting}, while electricity demand has been analyzed using autoregressive methods \citep{saab2001univariate}. 
+
+A complementary way to represent household demand response is through price elasticity. \citet{espey2004turning} provide a meta-analysis of residential electricity demand elasticities and show that residential demand responds negatively to price changes, with stronger responses in the long run than in the short run. This evidence supports the use of an elasticity-based demand adjustment when the objective is not to estimate a full behavioral demand system, but to propagate price-induced changes in household energy consumption into cost and emissions outcomes. In the context of this paper, this approach is used to introduce stochastic variation in per-user cooking-related energy demand while preserving the structure of the regulated tariff simulation.
+
+Despite the extensive literature on clean cooking, techno-economic assessment, tariff regulation, and energy-price forecasting, few studies integrate these dimensions within a single household-level framework. In particular, three gaps remain. First, many assessments do not model end-user tariffs according to the regulatory formulas that determine actual household prices. Second, socioeconomic heterogeneity is often simplified, even though tariff subsidies, contributions, consumption, and fiscal effects differ across household groups. Third, uncertainty is commonly incorporated on the cost side but not consistently linked to emissions, demand, and abatement-cost indicators. This study addresses these gaps by developing a stochastic, regulation-consistent framework that connects regulated tariff dynamics, household TCO, GHG emissions, fiscal-impact accounting, and marginal abatement cost indicators. The contribution is not the introduction of a new forecasting model, but the integration of stochastic tariff simulation with policy-relevant electrification metrics in a regulated energy system. This allows residential cooking electrification to be evaluated not only as a technology substitution, but also as a policy option with private, environmental, fiscal, and distributional implications.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Methodology}
+\label{methodology}
+
+This section presents the stochastic, regulation-consistent framework used to evaluate residential cooking electrification. The objective is to compare a business-as-usual (BAU) scenario, in which households continue using gas stoves, with an electrification scenario, in which gas stoves are replaced by induction cooktops. The comparison is carried out in terms of total cost of ownership (TCO), greenhouse gas (GHG) emissions, and marginal abatement costs (MAC). TCO represents the life-cycle cost of technology substitution \citep{ellram1994taxonomy}, while MAC provides a cost-effectiveness metric for evaluating mitigation options under uncertainty \citep{clerc2013desarrollo}. These household-level outputs are then used in the results section to interpret fiscal and distributional implications under Colombia's cross-subsidy scheme.
+
+The framework is organized in six stages, as shown in Figure~\ref{fig:methodology_diagram}. First, household energy data and regulated tariffs are collected. Second, the main tariff drivers are simulated stochastically and translated into price-responsive per-user demand adjustments. Third, technical and financial parameters are defined. Fourth, household-level TCO is calculated. Fifth, GHG emissions are estimated. Finally, MAC values and marginal abatement cost curves (MACC) are constructed. The fiscal and distributional implications are derived in the empirical application by combining the household-level results with the Colombian cross-subsidy structure and the number of users by socioeconomic stratum.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{Methodology_Electrification_Flowchart2.jpg}
+    \caption{Methodological framework for evaluating residential cooking electrification under regulated tariffs, stochastic tariff drivers, and price-responsive household energy demand.}
+    \label{fig:methodology_diagram}
+\end{figure}
+
+The framework combines two layers. The first is a techno-economic layer that defines appliance efficiencies, baseline household energy requirements, capital costs, discount rates, and emissions factors. The second is a stochastic tariff-and-demand layer, which captures uncertainty in the main components that affect household energy prices and translates simulated price changes into per-user demand adjustments. The stochastic representation of energy-price drivers builds on time-series and stochastic price-modeling approaches used for electricity and commodity prices  \citep{lucia2002electricity,tan2010day,ibrahim2021geometric}, while the demand response is represented through a price-elasticity adjustment supported by the residential demand literature \citep{espey2004turning}. The simulated tariffs and adjusted household demands are then propagated into TCO, GHG emissions, abatement potential, and MAC estimates, allowing the results to be expressed as probability distributions rather than single deterministic values. The technical details of the stochastic simulation and demand-adjustment procedures are reported in~\ref{appendix:stochastic_simulation}.
+
+%=====================================================
+\subsection{Regulated tariff structure}
+\label{sec:regulated_tariffs}
+%=====================================================
+
+In Colombia, residential gas and electricity tariffs are not set solely by market prices. They are constructed through regulatory formulas defined by the Comisión de Regulación de Energía y Gas (CREG). Therefore, the methodology explicitly represents how the main tariff components enter end-user prices.
+
+For natural gas, the residential volumetric unit cost is defined as \citep{CREG137_2013,CREG183_2013,CREG184_2014}:
+\begin{equation}
+Cuv_t = \frac{G_t + T_t}{1-\rho_t} + \left(D_t + fpc_t\right),
+\label{eq:gas_tariff_method}
+\end{equation}
+where $G_t$ is the gas supply component, $T_t$ is the transportation cost, $D_t$ is the distribution component, $fpc_t$ is the calorific adjustment factor, and $\rho_t$ represents technical losses.
+
+For electricity, the residential unit cost is defined as \citep{CREG119_2007}:
+\begin{equation}
+CU_t = GM_t + T_t + D_{n,t} + C_{v,t} + PR_{n,t} + R_t,
+\label{eq:elec_tariff_method}
+\end{equation}
+where $GM_t$ is the generation component, $T_t$ is the transmission charge, $D_{n,t}$ is the distribution component, $C_{v,t}$ is the commercialization margin, $PR_{n,t}$ represents recognized losses, and $R_t$ captures system restriction costs.
+
+These equations determine how changes in tariff drivers are transferred to households. In the stochastic layer, components with relevant uncertainty are simulated directly, while the remaining tariff components are updated deterministically in accordance with the regulatory structure and indexation rules described in the case study.
+
+%=====================================================
+\subsection{Stage 1. Data collection and baseline construction}
+\label{sec:data_collection}
+%=====================================================
+
+The first stage compiles the empirical inputs required for the analysis. These include residential gas consumption, electricity tariffs, natural gas tariffs, subscriber counts by socioeconomic stratum, and macroeconomic variables used in tariff indexation. Gas consumption is measured in m$^3$/month, electricity consumption in kWh/month, and tariffs are expressed in monetary units compatible with the cost calculations.
+
+The data are obtained from official regulatory and statistical sources and are harmonized to construct a consistent household-level baseline. A detailed description of the data sources, tariff series, subscriber counts, and technical parameters used in the empirical application is provided in Section~\ref{case study}.
+
+%=====================================================
+\subsection{Stage 2. Stochastic simulation of tariff drivers and price-responsive demand}
+\label{sec:variable_simulation}
+%=====================================================
+
+The second stage introduces uncertainty into the regulated tariff system. The stochastic module focuses on the variables that concentrate the main sources of price variability in residential energy costs: the natural gas supply component ($G_t$), the electricity generation component ($GM_t$), and inflation ($\pi_t$). These variables are selected because they affect end-user tariffs either directly or through regulatory indexation mechanisms.
+
+For each Monte Carlo path, future trajectories of $G_t$, $GM_t$, and $\pi_t$ are generated and introduced into the regulated tariff formulas defined in Eqs.~\eqref{eq:gas_tariff_method} and \eqref{eq:elec_tariff_method}. The stochastic simulation strategy follows the time-series modeling and validation logic detailed in~\ref{appendix:stochastic_simulation}, drawing on the energy-price modeling approaches of \citet{lucia2002electricity}, \citet{tan2010day}, and \citet{ibrahim2021geometric}. This produces simulated monthly paths for residential gas and electricity tariffs, denoted by $Cuv_t^{(i)}$ and $CU_t^{(i)}$, where $i$ indexes the simulation path.
+
+The simulated tariff paths are then used to adjust per-user household energy demand. This adjustment is based on the standard price-elasticity representation of residential energy demand, supported by the meta-analytic evidence reported by \citet{espey2004turning}. Its role is not to estimate a complete behavioral demand system, but to propagate price-induced changes in household consumption into TCO, GHG emissions, abatement potential, and MAC values. The technical specification of the demand-adjustment procedure is reported in~\ref{appendix:demand_adjustment}.
+
+%=====================================================
+\subsection{Stage 3. Technical and financial parameters}
+\label{sec:parameter_selection}
+%=====================================================
+
+The third stage defines the parameters required to compare the BAU and electrification scenarios. These include the evaluation horizon, discount rate, appliance capital cost, appliance efficiencies, emissions factors, and the price elasticity used in the demand adjustment. The same useful cooking-energy service is assumed in both scenarios, so differences in final energy requirements arise from the efficiency gap between gas stoves and induction cooktops.
+
+In the deterministic evaluation, household consumption is fixed by socioeconomic stratum. In the stochastic evaluation, household energy demand varies across simulation paths according to the simulated tariff trajectories. This extension allows uncertainty to be propagated not only into household costs, but also into GHG emissions, abatement potential, and MAC values.
+
+The parameter values used in the empirical application are reported in Section~\ref{case study}. In general terms, these parameters link simulated tariffs to household expenditures and emissions.
+
+%=====================================================
+\subsection{Stage 4. Total cost of ownership}
+\label{sec:cost_calculation}
+%=====================================================
+
+The fourth stage estimates the total cost of ownership for each cooking option. For technology $x \in \{\text{gas},\text{electricity}\}$, TCO is calculated as:
+\begin{equation}
+TCO_x = CAPEX_x + \sum_{t=1}^{T} \frac{OPEX_{x,t}}{(1+i)^t},
+\end{equation}
+where $CAPEX_x$ is the upfront appliance cost, $OPEX_{x,t}$ is the operating expenditure in month $t$, $i$ is the discount rate, and $T$ is the evaluation horizon. This life-cycle structure follows the TCO framework introduced by \citet{ellram1994taxonomy}, and is consistent with recent energy-technology applications in which total ownership costs depend on both upfront investment and operating expenditures \citep{bauer2025total,ElectricVehicleTCO}.
+
+Monthly operating expenditures are computed as:
+\begin{equation}
+OPEX_{x,t}^{(i)} = Price_{x,t}^{(i)} \times Consumption_{x,t}^{(i)},
+\end{equation}
+where $Price_{x,t}^{(i)}$ is the simulated regulated tariff for energy carrier $x$ in simulation path $i$, and $Consumption_{x,t}^{(i)}$ is the corresponding energy consumption after accounting for appliance efficiency and the stochastic demand adjustment.
+
+The incremental economic effect of electrification is:
+\begin{equation}
+\Delta TCO^{(i)} = TCO_{electricity}^{(i)} - TCO_{gas}^{(i)}.
+\end{equation}
+A negative value of $\Delta TCO^{(i)}$ indicates that electrification reduces household costs relative to BAU. Since both tariffs and household energy demand vary across simulation paths, $\Delta TCO$ is obtained as a distribution across Monte Carlo simulations.
+
+%=====================================================
+\subsection{Stage 5. GHG emissions}
+\label{sec:ghg_calculation}
+%=====================================================
+
+The fifth stage estimates emissions under both cooking technologies. In the deterministic evaluation, emissions are calculated using fixed household consumption values by socioeconomic stratum. In the stochastic evaluation, household consumption varies across simulation paths due to price-responsive demand adjustments.
+
+For each simulation path $i$, emissions from gas cooking are calculated as:
+\begin{equation}
+GHG_{gas}^{(i)} =
+EF_{gas} \times StoveConsumption_{gas}^{(i)},
+\end{equation}
+while emissions from induction cooking are calculated as:
+\begin{equation}
+GHG_{electricity}^{(i)} =
+EF_{electricity} \times StoveConsumption_{electricity}^{(i)},
+\end{equation}
+where $EF_{gas}$ and $EF_{electricity}$ are the corresponding emissions factors, and $StoveConsumption_{gas}^{(i)}$ and $StoveConsumption_{electricity}^{(i)}$ are the path-specific household energy consumption levels.
+
+The emissions reduction from electrification is:
+\begin{equation}
+\Delta GHG^{(i)} =
+GHG_{gas}^{(i)} - GHG_{electricity}^{(i)}.
+\end{equation}
+
+Positive values of $\Delta GHG^{(i)}$ indicate that electrification reduces emissions relative to the gas-cooking baseline. Because household demand varies across simulation paths, both electrification emissions and abatement potential are represented as stochastic outcomes.
+
+%=====================================================
+\subsection{Stage 6. Marginal abatement cost and MACC}
+\label{sec:mac}
+%=====================================================
+
+The final stage combines the economic and environmental results to calculate marginal abatement costs. Following the marginal abatement cost framework with uncertainty described by \citet{clerc2013desarrollo}, MAC is computed as:
+\begin{equation}
+MAC^{(i)} = \frac{\Delta TCO^{(i)}}{\Delta GHG^{(i)}}.
+\end{equation}
+
+A negative MAC indicates that electrification reduces emissions while also lowering household costs. A positive MAC indicates that emissions reductions are achieved at an additional cost. Because both $\Delta TCO$ and $\Delta GHG$ vary across simulation paths in the extended framework, the MAC is represented as a distribution rather than as a single deterministic value.
+
+To construct the MACC, stratum-level MAC values are ordered from lowest to highest cost per ton of CO$_2$e avoided, following the ranking logic used in marginal abatement cost curves \citep{clerc2013desarrollo}. The horizontal axis represents cumulative emissions reductions, while the vertical axis reports the corresponding marginal abatement cost. This preserves the standard interpretation of MACCs while incorporating uncertainty in both the economic and environmental components of the assessment.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Case Study}
+\label{case study}
+
+The proposed methodology is applied to the residential natural gas market in Bogotá. Bogotá is one of Colombia's main urban gas markets in terms of connected households and aggregate residential demand, making it a relevant case for evaluating the economic, environmental, fiscal, and distributional implications of replacing gas stoves with induction cooktops.
+
+The empirical analysis starts with households in socioeconomic stratum~4 of Bogotá. This stratum provides a useful benchmark because it is not subject to subsidies or contributions under the Colombian tariff regime. Evaluating this group first allows the regulated cost signal to be observed with fewer distortions from redistribution mechanisms. The analysis is then extended to the remaining socioeconomic strata to evaluate distributional, fiscal, and abatement-cost effects across the residential tariff structure.
+
+The case study combines cross-sectional indicators aligned to December~2022 with long-term monthly series used to characterize tariff and macroeconomic dynamics. The observed tariff series are treated as outcomes of regulated formulas influenced by market conditions, macroeconomic indexation, and institutional rules. This provides the empirical basis for identifying the stochastic drivers simulated in the methodology, particularly the gas supply component ($G_t$), the electricity generation component ($GM_t$), and inflation ($\pi_t$).
+
+%=====================================================
+\subsection{Context and data sources}
+\label{sec:context_data_sources}
+%=====================================================
+
+This case study is based primarily on official administrative records from the Sistema Único de Información de Servicios Públicos Domiciliarios (SUI), complemented with macroeconomic series used to harmonize monetary values and simulate regulated tariff dynamics. The empirical emphasis is placed on end-user variables: residential tariffs, household consumption, subscriber counts, and macroeconomic drivers. Additional national gas-market context, including sectoral gas consumption, supply-chain structure, and residential subscriber expansion, is reported in~\ref{appendix:case_context}.
+
+%=====================================================
+\subsection{Data Description}
+%=====================================================
+
+\subsubsection{Macroeconomic indexation variables}
+
+The macroeconomic variables used in the empirical application are the Consumer Price Index (IPC), the Producer Price Index (IPP), and the representative market exchange rate (TRM). IPC and IPP are included because they enter the indexation rules used to update several regulated tariff components, while the TRM is used to express tariffs and tariff components in U.S.\ dollars. These variables are not interpreted as direct measures of household expenditures; rather, they characterize the macroeconomic environment that affects regulated tariff formation and are later incorporated into the stochastic simulation framework.
+
+\subsubsection{Residential gas subscribers}
+
+Subscriber data are obtained from SUI and correspond to the December~2022 snapshot used to scale household-level costs, emissions, and fiscal effects to aggregate city--stratum outcomes. Additional descriptive evidence on the geographic distribution, historical expansion, and stratified composition of residential gas subscribers is reported in~\ref{appendix:case_context}.
+
+The Colombian stratification system classifies residential users into six socioeconomic strata. Households in Strata~1, 2, and 3 receive subsidies, while households in Strata~5 and 6 pay contributions; Stratum~4 is generally treated as the unsubsidized benchmark \citep{CREG137_2013,CREG184_2014,cabrales2023costos}. This structure is central to the analysis because cooking electrification affects not only household energy expenditures and emissions, but also subsidy requirements and contribution revenues.
+
+\subsubsection{Natural gas consumption}
+
+Residential natural gas consumption serves as the basis for both cost and emissions calculations. Monthly consumption per subscriber differs across cities and socioeconomic strata, reflecting variation in household size, appliance ownership, and cooking intensity.
+
+In the empirical analysis, Bogotá stratum~4 is used as the benchmark because it is not affected by subsidy or contribution adjustments. To place this benchmark in context, Figure~\ref{fig:cons-by-stratum} reports the average monthly natural gas consumption per subscriber by stratum and by city for the ten Colombian cities with the largest residential gas-user base, together with a weighted national benchmark.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.98\linewidth]{NatGasConsbyStratum.png}
+\caption{Natural gas consumption per subscriber by stratum (m$^3$/month) and city; weighted national average (2022--12) for the ten cities with the largest residential gas user base.}
+\label{fig:cons-by-stratum}
+\end{figure}
+
+Figure~\ref{fig:cons-by-stratum} shows that residential gas use is heterogeneous both across cities and across strata. This heterogeneity is relevant to subsequent cost and emissions calculations because the effect of replacing gas with electricity depends not only on tariffs but also on the amount of useful energy each household group demands.
+
+% =========================================================
+\subsubsection{Gas tariffs}
+
+Residential natural gas tariffs in Colombia are regulated by the Comisión de Regulación de Energía y Gas (CREG). The tariff paid by final users reflects the joint effect of supply, transportation, distribution, and technical adjustments. The formal definition of the residential volumetric unit cost is presented in Equation~\ref{eq:gas_tariff_method}.
+
+Each of these components is defined and periodically updated in accordance with regulatory methodologies established by CREG. In particular, the evolution of tariff components follows explicit indexation rules linked to macroeconomic variables and contractual conditions. Transportation charges ($T_m$) are typically indexed to the Producer Price Index (IPP), reflecting cost adjustments in pipeline infrastructure and logistics. Distribution costs ($D_m$), regulated under methodologies such as those introduced by the \citet{CREG008_2014}, and commercialization-related components may be updated through indexation to the Consumer Price Index (IPC). The supply component ($G_m$) reflects market-based procurement conditions and may be exposed to international price dynamics and exchange-rate fluctuations. The loss factor ($\rho_m$) and calorific adjustment ($fpc_m$) correspond to regulated technical parameters defined within the tariff formulation.
+
+These indexation and update rules are formally established in the CREG regulatory framework \citep{CREG137_2013,CREG183_2013,CREG184_2014}, which governs both the structure and periodic adjustment of residential natural gas tariffs in Colombia. This decomposition is particularly relevant because it links the observed tariff series to the regulatory system's institutional logic and provides the basis for the stochastic representation developed later in the paper.
+
+To complement the cross-sectional evidence reported in~\ref{appendix:case_context}, the case study documents the time behavior of the benchmark series used in the baseline evaluation. Figure~\ref{fig:price-gas-bog-e4} shows the monthly evolution of the residential natural gas unit cost (Cuv) in Bogotá for stratum~4, expressed in constant USD/MMBtu. Because stratum~4 is not affected by subsidies or contributions, the movements in this series provide a close approximation to the underlying regulated cost signal. The observed pattern includes both gradual changes and discrete adjustments over time, which supports the use of a stochastic, regulation-consistent framework rather than a fixed-price assumption.
+
+% =========================================================
+\subsubsection{Electricity tariffs}
+
+Residential electricity tariffs in Colombia are regulated by the Comisión de Regulación de Energía y Gas (CREG) under a multi-component structure formally established in Resolution CREG 119 of 2007. The formal definition of the regulated unit cost is presented in Equation~\ref{eq:elec_tariff_method}.
+
+Each component corresponds to a specific activity within the electricity supply chain. In accordance with the regulatory definitions, $GM_m$ represents the cost of energy procurement through wholesale markets and bilateral contracts, $T_m$ corresponds to transmission charges, $D_{n,m}$ reflects distribution network costs, $C_{v,m}$ is the commercialization margin, $PR_{n,m}$ accounts for recognized technical and non-technical losses, and $R_m$ includes system restriction and reliability-related costs \citep{CREG119_2007}.
+
+Each component is regulated and updated through explicit methodologies defined by CREG. The generation component ($GM_m$) reflects market-based dynamics, including energy purchases through contracts and the spot market, introducing an endogenous source of variability. Transmission ($T_m$) and distribution ($D_{n,m}$) charges are regulated network costs that depend on infrastructure remuneration schemes and typically incorporate indexation to cost-based indicators such as the Producer Price Index (IPP). The commercialization component ($C_{v,m}$) incorporates operational costs and is partially indexed to the Consumer Price Index (IPC), as defined in the regulatory formulation. Similarly, recognized losses ($PR_{n,m}$) and restriction costs ($R_m$) are determined through technical and operational criteria established by regulation.
+
+These mechanisms ensure that electricity tariffs evolve in response to a combination of market signals and regulated indexation rules, rather than solely to exogenous price processes. This structure is particularly relevant for the present study, as it provides the basis for identifying the stochastic drivers incorporated into the simulation framework.
+
+As with natural gas, the electricity tariff is expressed on a common energy basis in USD/MMBtu to enable direct comparison across energy carriers. Although the end-user tariff is originally stated in USD/kWh, this conversion is analytical and does not modify the underlying regulatory structure.
+
+Figure~\ref{fig:price-elec-bog-e4} presents the monthly evolution of CU in Bogotá for stratum~4, expressed in constant USD/MMBtu. As in the gas case, focusing on the unsubsidized benchmark allows isolating the regulated cost signal from the redistribution effects embedded in the tariff scheme. The series reflects the combined effect of CREG tariff components and macroeconomic indexation mechanisms. Its time variation, including stepwise adjustments, reinforces the need to represent electricity prices dynamically in the simulation framework.
+
+% =========================================================
+\subsubsection{Relative energy cost comparison: gas vs. electricity}
+
+To compare gas and electricity on a common basis, both tariffs are expressed in USD/MMBtu. The non-efficiency-adjusted comparison is reported in~\ref{appendix:case_context}. The main text focuses on the efficiency-adjusted comparison shown in Figure~\ref{fig:energy-cost-comparison-corr}, because it is the most relevant for TCO: induction cooking requires less final energy than gas cooking to deliver the same useful cooking service.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\linewidth]{ComparaGasElec.png}
+\caption{\textbf{Efficiency-adjusted comparison of residential cooking energy costs in Bogotá (USD/MMBtu).}
+Monthly evolution of natural gas (Cuv) and electricity (CU) tariffs converted to a common useful-energy basis using stove efficiency assumptions.}
+\label{fig:energy-cost-comparison-corr}
+\end{figure}
+
+Taken together, the empirical evidence presented in this section documents three central features of the Colombian residential energy market that are directly relevant to the empirical application: the stratified tariff structure, heterogeneous residential gas consumption, and the persistent cost differential between natural gas and electricity once useful cooking energy is considered. These features provide the empirical basis for the stochastic modeling strategy introduced in Section~\ref{methodology}. In particular, the observed temporal variation of $G_t$ and $GM_t$, together with the regulatory mechanisms through which they are transferred to end-user tariffs, justifies their treatment as stochastic drivers within the simulation framework.
+
+\subsubsection{Technical and financial parameters used in the empirical application}
+
+Table~\ref{tab:parameters} summarizes the technical and financial assumptions used to compare BAU gas cooking with induction cooking in Bogotá. These parameters define the investment cost, efficiency gap, evaluation horizon, discounting, and demand-response assumption used in the empirical application.
+
+\begin{table}[H]
+\centering
+\caption{Technical and financial parameters used in the empirical application}
+\label{tab:parameters}
+\begin{tabular}{p{0.22\linewidth} p{0.34\linewidth} p{0.34\linewidth}}
+\hline
+\textbf{Category} & \textbf{Parameter} & \textbf{Value / Source} \\
+\hline
+CAPEX
+& Electric cooking system
+& 316.9 USD \citep{upme2018lena} \\
+\hline
+\multirow{5}{=}{Operational parameters}
+& Analysis horizon ($n_{months}$)
+& 120 months (10 years) \\
+& Discount rate ($r_{wacc}$)
+& 0.29\% (CBOE 10Y Treasury, TNX) \\
+& Efficiency (induction stove)
+& 90\% \citep{sadhu2010induction} \\
+& Efficiency (gas stove)
+& 40\% \citep{doe2008cooking} \\
+& Short-run price elasticity of residential energy demand ($\varepsilon_x$)
+& -0.35 \citep{espey2004turning} \\
+\hline
+\end{tabular}
+\end{table}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Results}
+\label{results}
+
+This section presents the empirical results obtained from applying the proposed framework to the Bogotá case study. The comparison is organized around two scenarios. The first is the Business-as-Usual (BAU) case, in which households continue using natural gas for cooking. The second is the Electrification scenario, in which gas stoves are replaced by induction cooktops delivering the same cooking service.
+
+Within the Electrification scenario, two complementary evaluations are reported. The first is deterministic and uses the historical tariff information observed over the study period. The second is stochastic and uses simulated tariff trajectories and price-responsive household energy demand derived from the framework described in Section~\ref{methodology}. This distinction allows separating the structural effect of the technology switch from the uncertainty associated with tariff dynamics and macroeconomic conditions.
+
+%=====================================================
+\subsection{Stochastic simulation of tariff drivers}
+\label{results:simulation}
+%=====================================================
+
+Because the stochastic electrification results depend directly on the simulated behavior of the tariff drivers, the analysis first evaluates the natural gas supply component ($G_t$) and the electricity generation component ($GM_t$) in Bogotá. The detailed dependence diagnostics, model-selection results, graphical backtest, and simulated trajectories are reported in~\ref{appendix:stochastic_diagnostics}.
+
+The results support a tariff simulation structure in which the natural gas component is represented as an approximately independent process with heavy-tailed innovations, while the electricity generation component is modeled as dependent on the gas component. This distinction is important because electricity generation costs are the main operating-cost driver of the electrification scenario, whereas gas supply costs define the BAU alternative. The validated stochastic module therefore provides the basis for propagating tariff uncertainty into TCO, fiscal, emissions, and MAC outcomes in the following subsections.
+
+%=====================================================
+\subsection{Total Cost of Ownership (TCO)}
+\label{results:tco}
+%=====================================================
+
+The economic evaluation compares the BAU and Electrification scenarios in terms of total cost of ownership. Under BAU, households continue using gas stoves, so costs are determined by the discounted value of gas expenditures over the evaluation horizon. Under electrification, households incur the upfront cost of an induction cooktop but benefit from higher cooking efficiency, reducing the amount of purchased energy needed to provide the same cooking service.
+
+Table~\ref{tab:tco_ci} summarizes the BAU TCO and the incremental cost of electrification, $\Delta TCO$, for both deterministic and stochastic cases.
+
+\begin{table}[htbp]
+\centering
+\caption{TCO by socioeconomic stratum in Bogotá: BAU gas cost, deterministic $\Delta TCO$, and stochastic $\Delta TCO$ summary}
+\label{tab:tco_ci}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Stratum} 
+& $TCO_{\mathrm{BAU,gas}}$ (USD/user) 
+& $\Delta TCO_{\mathrm{det}}$ (USD/user) 
+& $\mathbb{E}[\Delta TCO_{\mathrm{stoch}}]$, 95\% CI (USD/user) \\
+\midrule
+Stratum 1 & 680.11  & -287.47  & -252.57, [-357.68, -149.78] \\
+Stratum 2 & 710.50  & -310.94  & -304.51, [-419.20, -192.34] \\
+Stratum 3 & 955.86  & -531.83  & -709.01, [-892.41, -530.30] \\
+Stratum 4 & 1177.21 & -705.08  & -918.61, [-1146.65, -695.59] \\
+Stratum 5 & 1777.17 & -1225.92 & -1548.27, [-1892.53, -1211.59] \\
+Stratum 6 & 3212.43 & -2537.55 & -2532.08, [-3057.92, -2017.81] \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Table~\ref{tab:tco_ci} shows that BAU costs increase with socioeconomic stratum, reflecting the consumption gradient documented in the case study. Electrification yields negative $\Delta TCO$ in all strata under both deterministic and stochastic approaches, meaning that the electric option is cost-saving even after including the induction cooktop investment. Although the 95\% confidence intervals widen for higher-income strata because of greater exposure to electricity-price uncertainty, the upper bound remains negative in all cases. Thus, the conclusion of net household savings is robust across the simulated tariff outcomes.
+
+%=====================================================
+\subsection{Fiscal impact of electrification}
+\label{results:fiscal}
+%=====================================================
+
+The household-level savings reported in the previous subsection do not necessarily imply equivalent fiscal savings for the government. In the Colombian tariff system, subsidies for lower-income strata and contributions from higher-income strata create an additional public-finance dimension. For this reason, stratum-level fiscal impacts are aggregated using the number of residential gas users in each socioeconomic stratum in Bogotá. Detailed per-household fiscal impacts are reported in~\ref{appendix:fiscalMACCandimportedgas}, while the aggregate fiscal impact is reported in Table~\ref{tab:fiscal_impact_aggregate}.
+
+\begin{table}[H]
+\centering
+\caption{Aggregate fiscal impact of cooking electrification by socioeconomic stratum in Bogotá}
+\label{tab:fiscal_impact_aggregate}
+
+\resizebox{\textwidth}{!}{
+\begin{tabular}{lrrrr}
+\toprule
+\textbf{Stratum} 
+& \textbf{BAU} 
+& \textbf{Deterministic} 
+& \textbf{Stochastic mean} 
+& \textbf{Stochastic 95\% CI} \\
+\textit{Units} 
+& \textit{million USD} 
+& \textit{million USD} 
+& \textit{million USD} 
+& \textit{million USD} \\
+\midrule
+E1 & 117.71 & -101.98 & -151.86 & [-171.63,\,-132.46] \\
+E2 & 348.69 & -299.14 & -464.18 & [-524.62,\,-404.88] \\
+E3 & 0.00 & 14.37 & 17.27 & [13.54,\ 22.33] \\
+E4 & 0.00 & 0.00 & 0.00 & [0.00,\ 0.00] \\
+E5 & -26.99 & 23.77 & 28.72 & [25.05,\ 32.45] \\
+E6 & -62.92 & 59.68 & 31.80 & [26.91,\ 37.87] \\
+\midrule
+\textbf{Total} & \textbf{383.34} & \textbf{-303.31} & \textbf{-538.26} & \textbf{[-630.76,\,-444.69]} \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+The aggregate results in Table~\ref{tab:fiscal_impact_aggregate} show that cooking electrification would generate a net fiscal saving for Bogotá under both electrification scenarios. Under the deterministic scenario, the aggregate fiscal effect is USD $-303.31$ million. Under the stochastic scenario, the expected aggregate fiscal effect reaches USD $-538.26$ million, with a 95\% confidence interval between USD $-630.76$ million and USD $-444.69$ million. This result is mainly driven by avoided subsidy expenditures in Strata 1 and 2, which more than offset the forgone contribution revenues from Strata 5 and 6.
+
+%=====================================================
+\subsection{GHG emissions and abatement potential}
+\label{results:ghg}
+%=====================================================
+
+The environmental evaluation compares annual greenhouse gas emissions under BAU and electrification. Table~\ref{tab:ghg_results} reports the results by socioeconomic stratum.
+
+\begin{table}[H]
+\centering
+\caption{Annual household GHG emissions under BAU and electrification scenarios by socioeconomic stratum in Bogotá}
+\label{tab:ghg_results}
+
+\resizebox{\textwidth}{!}{
+\begin{tabular}{lcccccc}
+\toprule
+\textbf{Scenario} 
+& \textbf{E1} & \textbf{E2} & \textbf{E3} & \textbf{E4} 
+& \textbf{E5} & \textbf{E6} \\
+\textit{Units} 
+& (tCO$_2$e/yr) & (tCO$_2$e/yr) & (tCO$_2$e/yr) 
+& (tCO$_2$e/yr) & (tCO$_2$e/yr) & (tCO$_2$e/yr) \\
+\midrule
+BAU (gas) & 0.450 & 0.393 & 0.317 & 0.391 & 0.492 & 0.751 \\
+Electrification (deterministic) & 0.360 & 0.314 & 0.253 & 0.312 & 0.393 & 0.600 \\
+Electrification (stochastic mean) & 0.385 & 0.352 & 0.271 & 0.334 & 0.420 & 0.642 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+The results show that electrification reduces annual emissions in all strata. Under BAU, emissions range from 0.317 tCO$_2$e per household per year in Stratum~3 to 0.751 tCO$_2$e in Stratum~6. Under deterministic electrification, emissions decline to values between 0.253 and 0.600 tCO$_2$e per household-year, while under the stochastic mean case they range from 0.271 to 0.642 tCO$_2$e per household-year.
+
+Annual emissions reductions remain positive across all strata. In the deterministic case, reductions range from 0.064 tCO$_2$e per household in Stratum~3 to 0.151 tCO$_2$e in Stratum~6. In the stochastic mean case, they range from 0.041 tCO$_2$e in Stratum~2 to 0.109 tCO$_2$e in Stratum~6. Higher-income households exhibit larger absolute reductions because their baseline cooking-related energy demand is higher.
+
+Taken together, the economic and environmental results show that $\Delta TCO$ is negative and $\Delta GHG$ is positive across all strata. Electrification therefore dominates the BAU scenario along both dimensions: it reduces household costs and lowers emissions. This joint result explains why the MAC values reported below remain negative in all strata.
+
+%=====================================================
+\subsection{Marginal Abatement Cost Curves (MACC)}
+\label{results:macc}
+%=====================================================
+
+Figure~\ref{fig:macc-mean} presents the marginal abatement cost curve based on mean stochastic MAC values. Additional deterministic and median-based MACC representations are reported in~\ref{appendix:fiscalMACCandimportedgas}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.88\textwidth]{MACCBogMeanElec.png}
+    \caption{\textbf{MACC based on mean stochastic MAC values.}}
+    \label{fig:macc-mean}
+\end{figure}
+
+The curve shows that all strata remain below zero, indicating that cooking electrification is a negative-cost mitigation option throughout the socioeconomic distribution. The ordering of strata is stable relative to the deterministic and median-based representations reported in~\ref{appendix:fiscalMACCandimportedgas}. Thus, uncertainty changes the magnitude of MAC values but not the qualitative ranking of the intervention.
+
+%=====================================================
+\subsection{Marginal Abatement Cost (MAC)}
+\label{results:mac}
+%=====================================================
+
+To complement the MACC representation, Table~\ref{tab:macc_ci} and Figure~\ref{fig:boxplot-mac} summarize the distribution of marginal abatement costs across socioeconomic strata.
+
+\begin{table}[htbp]
+\centering
+\caption{MAC by socioeconomic stratum in Bogotá: deterministic MAC and stochastic MAC distribution (200 simulations per stratum)}
+\label{tab:macc_ci}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Stratum}  
+& $MAC_{\mathrm{det}}$ (USD/tCO$_2$e) 
+& $\overline{MAC}_{\mathrm{stoch}}$ (USD/tCO$_2$e)
+& 95\% CI (USD/tCO$_2$e) \\
+\midrule
+Stratum 1 & -93.72  & -52.15  & [-81.72, -28.36] \\
+Stratum 2 & -116.12 & -100.02 & [-141.66, -66.52] \\
+Stratum 3 & -246.05 & -289.57 & [-368.78, -222.37] \\
+Stratum 4 & -264.86 & -307.00 & [-392.41, -244.55] \\
+Stratum 5 & -366.06 & -439.00 & [-537.57, -354.79] \\
+Stratum 6 & -496.06 & -510.00 & [-619.67, -422.53] \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Table~\ref{tab:macc_ci} confirms that all strata exhibit negative MAC values under both deterministic and stochastic evaluations. In the deterministic case, the values range from -93.72 USD/tCO$_2$e in Stratum~1 to -496.06 USD/tCO$_2$e in Stratum~6. In the stochastic case, mean MAC values range from -52.15 USD/tCO$_2$e in Stratum~1 to -510.00 USD/tCO$_2$e in Stratum~6.
+
+The confidence intervals reinforce the robustness of the result. In every case, the full 95\% interval remains below zero, meaning that even under unfavorable tariff realizations generated by the simulation, electrification remains a negative-cost mitigation option.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.88\textwidth]{MACCBogEstocast.png}
+    \caption{\textbf{Distribution of stochastic MAC values by socioeconomic stratum.}}
+    \label{fig:boxplot-mac}
+\end{figure}
+
+Figure~\ref{fig:boxplot-mac} complements the table by showing the full distribution of stochastic MAC values. Dispersion increases with socioeconomic stratum, especially in Strata~5 and~6, but none of the distributions crosses into positive MAC territory. Uncertainty therefore affects the magnitude of savings per ton of CO$_2$e avoided, but not whether those savings exist.
+
+%=====================================================
+\subsection{Imported-gas sensitivity scenarios}
+\label{results:import_scenarios}
+%=====================================================
+
+To evaluate the effect of greater exposure to imported natural gas, this subsection reports two sensitivity scenarios for Bogotá. Following \citet{cabrales2025fedesarrollo_gas_imports}, the first scenario assumes that 50\% of residential gas consumption is supplied by imports, increasing the residential natural gas tariff by 44.6\%. The second scenario assumes full import dependence, increasing the residential natural gas tariff by 89.3\%. In both cases, the tariff shock is applied to the BAU gas-cooking alternative, while the induction-cooking scenario remains unchanged. Therefore, these scenarios evaluate whether cooking electrification becomes more attractive when households face higher gas-import prices.
+
+The detailed stratum-level TCO and MAC results for the imported-gas scenarios are reported in~\ref{appendix:fiscalMACCandimportedgas}. In summary, higher import dependence substantially increases the cost of remaining in the BAU gas-cooking alternative. Under the 50\% imported-gas scenario, deterministic $\Delta TCO$ ranges from USD $-590.80$ per household in Stratum~1 to USD $-3970.30$ in Stratum~6. Under full import dependence, the savings become even larger, ranging from USD $-894.81$ in Stratum~1 to USD $-5406.25$ in Stratum~6.
+
+The MAC results also remain negative across all strata and under both imported-gas scenarios. Under 50\% imported gas, stochastic mean MAC values range from USD $-176.90$/tCO$_2$e to USD $-771.74$/tCO$_2$e. Under 100\% imported gas, they range from USD $-272.15$/tCO$_2$e to USD $-1054.91$/tCO$_2$e. Relative to the baseline case, both imported-gas scenarios shift the MAC distribution downward because the BAU gas-cooking alternative becomes more expensive.
+
+\begin{table}[H]
+\centering
+\caption{Aggregate fiscal impact under imported-gas scenarios in Bogotá}
+\label{tab:import_scenarios_fiscal_aggregate}
+\resizebox{\textwidth}{!}{
+\begin{tabular}{llrr}
+\toprule
+\textbf{Scenario} 
+& \textbf{Stratum} 
+& \textbf{BAU} 
+& \textbf{Deterministic electrification} \\
+\textit{Units} 
+& 
+& \textit{million USD} 
+& \textit{million USD} \\
+\midrule
+50\% imported gas & E1 & 170.24 & -155.65 \\
+50\% imported gas & E2 & 504.22 & -457.06 \\
+50\% imported gas & E3 & 0.00 & 14.36 \\
+50\% imported gas & E4 & 0.00 & 0.00 \\
+50\% imported gas & E5 & -39.03 & 35.98 \\
+50\% imported gas & E6 & -90.99 & 88.08 \\
+\midrule
+\textbf{50\% imported gas} & \textbf{Total} & \textbf{544.43} & \textbf{-474.29} \\
+\midrule
+100\% imported gas & E1 & 222.87 & -209.43 \\
+100\% imported gas & E2 & 660.09 & -615.33 \\
+100\% imported gas & E3 & 0.00 & 14.36 \\
+100\% imported gas & E4 & 0.00 & 0.00 \\
+100\% imported gas & E5 & -51.10 & 48.22 \\
+100\% imported gas & E6 & -119.12 & 116.54 \\
+\midrule
+\textbf{100\% imported gas} & \textbf{Total} & \textbf{712.73} & \textbf{-645.64} \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+Table~\ref{tab:import_scenarios_fiscal_aggregate} shows that import dependence also strengthens the fiscal case for electrification. Under the 50\% imported-gas scenario, the BAU fiscal position reaches USD $544.43$ million, while deterministic electrification produces an aggregate fiscal saving of USD $474.29$ million. Under full import dependence, the BAU fiscal position increases to USD $712.73$ million, and deterministic electrification produces an aggregate fiscal saving of USD $645.64$ million.
+
+The fiscal effect remains heterogeneous across strata. Strata~1 and~2 generate the largest fiscal savings because electrification reduces the subsidy burden associated with more expensive gas consumption. By contrast, Strata~5 and~6 generate positive fiscal impacts under electrification, reflecting forgone contribution revenues. However, in both import scenarios, avoided subsidy expenditures in lower-income strata outweigh the contribution losses from higher-income strata, so the aggregate fiscal effect remains favorable.
+
+These results have a direct policy implication. Under higher gas-import dependence, cooking electrification becomes both a mitigation strategy and a hedge against future residential gas-price exposure. The 50\% and 100\% imported-gas scenarios increase the cost of the BAU alternative, strengthen household savings, and improve the fiscal balance by reducing subsidy exposure in lower-income strata. Therefore, residential cooking electrification should be considered not only as a decarbonization policy, but also as an energy-security instrument that reduces household vulnerability to future gas-supply constraints and import-driven tariff increases.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Discussion}
+\label{discussion}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The results presented in Section~\ref{results} show that residential cooking electrification in Bogotá is consistently associated with household cost savings and emissions reductions across all socioeconomic strata. Electrification yields negative $\Delta TCO$ under both deterministic and stochastic evaluations (Table~\ref{tab:tco_ci}), reduces household GHG emissions (Table~\ref{tab:ghg_results}), and produces negative marginal abatement costs with stable rankings under uncertainty (Table~\ref{tab:macc_ci} and Figure~\ref{fig:macc-mean}). The additional MACC representations reported in~\ref{appendix:fiscalMACCandimportedgas} confirm that this qualitative result is robust to deterministic and median-based specifications. Taken together, these findings position cooking electrification as a negative-cost mitigation option in the Bogotá residential sector when assessed from the household perspective.
+
+These results are consistent in sign with previous Colombian evidence. In particular, \citet{cabrales2023costos} also identify negative private cost differentials associated with cooking electrification. However, the present study differs in scale and interpretation. While \citet{cabrales2023costos} focus on national, system-level effects, this paper evaluates household-level outcomes under Bogotá's regulated tariff structure, explicitly accounting for socioeconomic heterogeneity and stochastic tariff dynamics. This distinction helps explain why private, fiscal, and aggregate results may not align perfectly across studies. At the household level, expected savings range from about USD 253 in Stratum~1 to USD 2532 in Stratum~6, reflecting differences in baseline consumption that are often averaged out in aggregate analyses. These results also underscore the role of efficiency: induction cooking requires less final energy to deliver the same cooking service, which is consistent with the efficiency advantages of electric cooking technologies reported by \citet{im2020} and \citet{scott2024energy}.
+
+The environmental results also align with the broader literature. Electrification reduces emissions in all strata, with deterministic reductions ranging from 0.064 to 0.151 tCO$_2$e per household per year and stochastic mean reductions ranging from 0.041 to 0.109 tCO$_2$e per household per year. These values are lower than the normalized estimate of about 0.240 tCO$_2$e per household-year reported by \citet{cabrales2023costos}, but the difference is reasonable given differences in scope, baseline consumption, technology assumptions, and system boundaries. The finding that emissions benefits depend on appliance efficiency is consistent with \citet{scott2024energy}; the role of the electricity supply mix is consistent with \citet{im2020}; and the importance of household consumption patterns and context-specific conditions is consistent with the broader clean-cooking evidence discussed by \citet{floess2023}.
+
+A key contribution of the analysis is the distinction between private savings and fiscal effects. The household-level results show that electrification is cost-saving across all strata, but the fiscal impact depends on how subsidies and contributions are redistributed through Colombia's cross-subsidy scheme. This distinction is central in the Colombian context, where \citet{cabrales2023costos} and \citet{cabrales2025subsidios_gas} emphasize that cooking electrification interacts directly with subsidy obligations and contribution revenues. In the Bogotá case, the aggregate results show an expected stochastic fiscal saving of USD $538.26$ million, mainly driven by avoided gas-subsidy expenditures in Strata~1 and~2. However, the per-household fiscal results reported in~\ref{appendix:fiscalMACCandimportedgas} show that electrification also reduces contribution revenues from higher-income households. Therefore, the policy relevance of electrification cannot be inferred from private TCO savings alone. It requires considering household savings, aggregate fiscal balance, and the distribution of fiscal effects across strata simultaneously.
+
+Socioeconomic heterogeneity is central to this interpretation. Higher-income households exhibit larger absolute savings and greater emissions reductions because their baseline cooking-related energy use is higher. At the same time, the stochastic analysis shows wider dispersion in TCO and MAC outcomes for these groups, indicating greater exposure to tariff uncertainty. However, uncertainty affects the magnitude of the outcomes rather than their direction. Even after incorporating stochastic tariff drivers and price-responsive household demand, electrification remains cost-saving and emissions-reducing across all strata. This suggests that structural factors, especially appliance efficiency and regulated tariff design, dominate short-term tariff fluctuations in this case study. This result differs from settings where market-price volatility plays a stronger role in determining the cost-effectiveness of clean-cooking transitions, as discussed by \citet{floess2023}.
+
+From a policy perspective, the findings support a targeted residential cooking-electrification program focused on appliance replacement and household adaptation rather than permanent electricity-tariff subsidies. Since the TCO estimates already include the induction cooktop investment and still show negative $\Delta TCO$ across all strata, the main barrier is more likely to be upfront liquidity than long-run affordability. Policy instruments should therefore prioritize CAPEX support, such as appliance rebates, concessional credit, on-bill financing, targeted replacement programs, minor electrical adaptation support, compatible cookware replacement, and user training.
+
+The design of these instruments should differ by socioeconomic stratum. Low-income households should receive stronger upfront support because they face tighter liquidity constraints and are less able to absorb appliance and adaptation costs. Middle-income households may require partial rebates or concessional financing, while higher-income households may be better served by information, voluntary replacement programs, and access to financing rather than direct subsidies. This targeting would improve affordability while avoiding permanent electricity-tariff subsidies that could increase fiscal exposure and weaken price signals.
+
+The results also suggest that the cross-subsidy scheme should be recalibrated rather than eliminated. Electrification reduces subsidy requirements in lower-income strata but also reduces contribution revenues from higher-income households. This is consistent with the fiscal trade-offs identified for Colombia by \citet{cabrales2023costos} and \citet{cabrales2025subsidios_gas}. Although the aggregate fiscal effect is favorable in Bogotá, the distribution of fiscal impacts remains asymmetric. Regulators should therefore monitor how gas demand displacement affects both subsidy obligations and contribution revenues. A gradual recalibration would allow the government to preserve affordability objectives while avoiding fiscal imbalances as households move from gas to electricity. A practical financing mechanism would be to use part of the avoided gas-subsidy burden to support a residential cooking-electrification transition fund, especially for low-income households.
+
+The imported-gas sensitivity scenarios strengthen the policy case for electrification as an energy-security measure. When residential gas tariffs increase under 50\% and 100\% import-dependence scenarios, the BAU gas-cooking pathway becomes more expensive, while induction cooking is not directly exposed to imported-gas price shocks. This interpretation is consistent with the gas-supply-risk context analyzed by \citet{cabrales2025fedesarrollo_gas_imports}. Therefore, cooking electrification can reduce household vulnerability to future gas-supply constraints and import-driven tariff increases. This provides an additional justification for incorporating cooking electrification into broader residential decarbonization and energy-security strategies.
+
+Several limitations should be acknowledged. Appliance efficiencies and emission factors are treated as fixed parameters, and the framework does not explicitly model behavioral responses, rebound effects, appliance-use heterogeneity, or dynamic changes in grid carbon intensity. Although the stochastic extension introduces price-responsive variation in household demand, future work could estimate cooking-demand responses using richer behavioral data. In addition, the imported-gas scenarios are implemented as exogenous tariff shocks rather than as an endogenous representation of the Colombian gas market. Future research could integrate supply-demand modeling, infrastructure constraints, gas-contract structures, electricity-system constraints, and interactions with distributed renewable generation. Finally, because the empirical application focuses on Bogotá, additional applications are needed to assess how the framework performs in cities with different tariff structures, consumption patterns, and electricity-market conditions.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Conclusions and Policy Implications}
+\label{conclusions}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+This paper develops a stochastic, regulation-consistent framework to evaluate residential cooking electrification under regulated tariffs, macroeconomic indexation, cross-subsidies, and household heterogeneity. By combining Monte Carlo simulation of tariff drivers, price-responsive household energy demand, regulated pricing formulas, total cost of ownership (TCO), greenhouse gas (GHG) emissions, fiscal-impact accounting, and marginal abatement cost analysis (MACC), the framework extends deterministic electrification assessments and provides a policy-oriented basis for evaluating electrification under uncertainty.
+
+The application to Bogotá shows that replacing gas stoves with induction cooktops is a negative-cost mitigation option across all socioeconomic strata under the modeled assumptions. Electrification reduces household TCO and GHG emissions relative to the business-as-usual gas-cooking scenario, while MAC values remain negative under both deterministic and stochastic evaluations. Uncertainty affects the magnitude of household savings, emissions reductions, fiscal effects, and MAC outcomes, but does not change their direction. This suggests that the attractiveness of induction cooking in Bogotá is driven mainly by structural factors, especially appliance efficiency and regulated tariff design, rather than by short-term tariff fluctuations.
+
+The results also show that the benefits of electrification are heterogeneous. Higher-income households obtain larger absolute savings and emissions reductions because their baseline cooking-related energy use is higher, while lower-income households benefit less in absolute terms but remain central to the fiscal and equity implications of the transition. This confirms that socioeconomic heterogeneity should be explicitly considered when designing residential electrification policy.
+
+From a policy standpoint, the preferred intervention is a targeted cooking-electrification program that supports upfront appliance acquisition and household adaptation costs, especially for low-income households, while avoiding permanent electricity-tariff subsidies. Since the aggregate fiscal results for Bogotá indicate net savings from avoided gas subsidies, part of this avoided subsidy burden could be redirected to finance induction cooktops, minor electrical adaptations, compatible cookware replacement, and user training. At the same time, the cross-subsidy scheme should be monitored and gradually recalibrated as gas demand is displaced by electricity demand, so that affordability objectives are preserved without creating new fiscal imbalances.
+
+The imported-gas sensitivity scenarios strengthen this policy recommendation. Under 50\% and 100\% import-dependence scenarios, the BAU gas-cooking alternative becomes substantially more expensive, while induction cooking is not directly exposed to imported-gas price shocks. Cooking electrification should therefore also be viewed as an energy-security instrument that can reduce household vulnerability to future gas-supply constraints and import-driven residential tariff increases.
+
+Some limitations remain. The analysis assumes fixed appliance efficiencies and emission factors, and it does not explicitly model behavioral responses, rebound effects, appliance-use heterogeneity, dynamic grid-emission factors, or electricity-network constraints. The imported-gas scenarios are implemented as exogenous tariff shocks rather than as an endogenous representation of Colombia's gas market, and the empirical application focuses on Bogotá. Future research could extend the framework to other cities, incorporate dynamic emission factors and adoption behavior, endogenize gas import dependence, and evaluate interactions with electricity-system constraints and distributed renewable generation.
+
+In relation to SDG~7, the results show that a targeted cooking-electrification policy can support affordable, cleaner, and more efficient household energy use under regulated tariff conditions. In the Bogotá case, electrification reduces household costs and emissions across all strata, while avoided gas subsidies could partly finance appliance acquisition and household adaptation support without relying on permanent electricity-tariff subsidies.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{CRediT authorship contribution statement}
+
+Julio C. Cruz: Conceptualization, Methodology, Software, Formal analysis, Data curation, Investigation, Visualization, Writing -- original draft, Writing -- review and editing.
+
+Sergio Cabrales: Conceptualization, Methodology, Supervision, Validation, Investigation, Writing -- review and editing.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{Declaration of competing interest}
+
+The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{Funding}
+
+This research did not receive any specific grant from funding agencies in the public, commercial, or not-for-profit sectors.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{Data availability}
+
+The data used in this study were obtained from publicly available administrative, regulatory, and macroeconomic sources, including the Sistema Único de Información de Servicios Públicos Domiciliarios (SUI), the Comisión de Regulación de Energía y Gas (CREG), and official Colombian macroeconomic series. The processed data and code required to reproduce the results are available at [repository name], [DOI or URL]. The raw administrative and regulatory data are publicly available from SUI, CREG, and official Colombian macroeconomic sources.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{Declaration of generative AI and AI-assisted technologies in the manuscript preparation process}
+
+During the preparation of this work, the authors used ChatGPT to support language editing and text corrections. After using this tool, the authors reviewed and edited the content as needed and take full responsibility for the content of the published article.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\appendix
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\numberwithin{table}{section}
+\section{Technical details of the stochastic tariff and demand simulation}
+\label{appendix:stochastic_simulation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+This appendix provides the technical details of the stochastic tariff and demand simulation module summarized in Section~\ref{sec:variable_simulation}. The objective of this module is to generate Monte Carlo trajectories for the tariff drivers that concentrate the main uncertainty in residential energy costs: the natural gas supply component ($G_t$), the electricity generation component ($GM_t$), and inflation ($\pi_t$). These simulated trajectories are later translated into regulated end-user tariffs through the tariff formulas defined in Eqs.~\eqref{eq:gas_tariff_method} and \eqref{eq:elec_tariff_method}. The resulting tariff paths are then used to adjust per-user household energy demand through a price-elasticity representation.
+
+%=====================================================
+\subsection{Data preparation and log-return construction}
+\label{appendix:prep}
+%=====================================================
+
+Let $S_t^{(c)}$ denote the monthly level in USD of variable $c \in \{G,GM,\pi\}$ at month $t$. The first step is to prepare the data for stochastic modeling. The database is filtered to retain observations corresponding to the empirical application and to each variable under analysis. The series for $G_t$ and $GM_t$ are expressed in USD using the corresponding exchange rate, and all observations are ordered chronologically. To ensure temporal consistency, the monthly frequency is standardized by retaining the last available observation in each month.
+
+Once the monthly series are consolidated, returns are constructed in logarithmic form. This choice is standard in stochastic price modeling because it is consistent with diffusion-based specifications such as geometric Brownian motion \citep{ibrahim2021geometric} and reduced-form electricity-price models such as Lucia--Schwartz \citep{lucia2002electricity}. Monthly returns are defined as:
+\begin{equation}
+    r_t^{(c)} = \log\!\left(\frac{S_t^{(c)}}{S_{t-1}^{(c)}}\right),
+    \qquad c \in \{G,GM,\pi\},
+\end{equation}
+for $t = 2,\dots,T$. These returns provide the input for the diagnostic stage and the subsequent choice of simulation models.
+
+%=====================================================
+\subsection{Diagnostic tests}
+\label{appendix:diagnostics}
+%=====================================================
+
+After returns are constructed, their statistical properties are evaluated. This diagnostic block is common to $G_t$, $GM_t$, and $\pi_t$, and determines the simulation route.
+
+Four properties are evaluated. First, serial correlation is tested using the Ljung--Box statistic \citep{ljung1978measure}. For a maximum lag $L$, the test statistic is:
+\begin{equation}
+    Q_L = T(T+2)\sum_{k=1}^L \frac{\hat \rho_k^2}{T-k},
+\end{equation}
+where $\hat \rho_k$ is the sample autocorrelation at lag $k$.
+
+Second, conditional heteroscedasticity is evaluated using the ARCH LM test proposed by \citet{engle1982autoregressive}. Third, departures from Normality are assessed through the Jarque--Bera test \citep{jarque1987test} and the Shapiro--Wilk test \citep{shapiro1965analysis}. Fourth, for the pair $(G_t,GM_t)$, the correlation between returns is evaluated in order to determine whether both variables should be simulated jointly or separately.
+
+The use of autocorrelation tests follows the Box--Jenkins identification framework \citep{box2015time}, while the treatment of heteroscedasticity and conditional volatility follows the ARCH/GARCH tradition introduced by \citet{engle1982autoregressive} and extended by \citet{bollerslev1986generalized}. In the case of inflation, the diagnostic results justify a mean-reversion specification. In the case of $G_t$ and $GM_t$, the results determine whether the simulation proceeds through bivariate or univariate models and whether Gaussian or heavy-tailed innovations are more appropriate.
+
+%=====================================================
+\subsection{Innovation distribution under non-Normal returns}
+\label{appendix:innovation_dist}
+%=====================================================
+
+When the Jarque--Bera \citep{jarque1987test} and/or Shapiro--Wilk \citep{shapiro1965analysis} tests reject Normality, Gaussian innovations may understate tail risk and produce predictive intervals that are too narrow. For that reason, the simulation framework allows for Student-\emph{t} innovations in models with conditional heteroscedasticity.
+
+Specifically, when Normality is rejected and ARCH effects are present, innovations are modeled as:
+\begin{equation}
+z_t \sim t_\nu,
+\end{equation}
+where $\nu$ denotes the degrees of freedom. If Normality is not rejected, the benchmark specification is maintained:
+\begin{equation}
+z_t \sim \mathcal{N}(0,1).
+\end{equation}
+
+This rule ensures that the model selection process captures potential heavy tails in energy-price returns while preserving a parsimonious specification when Gaussian innovations are adequate.
+
+%=====================================================
+\subsection{Inflation modeling}
+\label{appendix:inflation}
+%=====================================================
+
+Inflation ($\pi_t$) is simulated separately from the two energy components. This treatment is consistent with its role as a macroeconomic driver of tariff indexation rather than as a market-traded energy price.
+
+Inflation is represented through an AR(1) mean-reverting process:
+\begin{equation}
+\pi_t - \bar{\pi} = \varphi\,(\pi_{t-1} - \bar{\pi}) + \varepsilon_t,
+\qquad \varepsilon_t \sim \mathcal{N}(0,\sigma_\pi^2),
+\end{equation}
+where $\bar{\pi}$ is the long-run mean, $\varphi$ measures persistence, and $|\varphi|<1$ guarantees mean reversion. The parameters $(\bar{\pi},\varphi,\sigma_\pi)$ are estimated using the historical monthly inflation series. Future inflation paths are generated recursively over the simulation horizon and later used in the tariff reconstruction stage. This specification is consistent with standard representations of inflation dynamics in macroeconomic time series, where persistence and mean reversion are commonly captured through low-order autoregressive processes, as in \citet{khamis2020} and \citet{babu2015}.
+
+%=====================================================
+\subsection{Correlation-based simulation strategy for $G_t$ and $GM_t$}
+\label{appendix:bivariate}
+%=====================================================
+
+The simulation of the natural gas supply component ($G_t$) and the electricity generation component ($GM_t$) depends on the empirical relationship between their return series. Let $r_t^{(G)}$ and $r_t^{(GM)}$ denote the synchronized monthly returns of the gas and electricity components. Their empirical dependence is evaluated using the Pearson correlation coefficient:
+\begin{equation}
+    \rho_{G,GM} = \mathrm{corr}\bigl(r_t^{(G)}, r_t^{(GM)}\bigr), 
+    \qquad H_0: \rho_{G,GM} = 0.
+\end{equation}
+
+If the null hypothesis is rejected, $G_t$ and $GM_t$ are simulated jointly. If the null cannot be rejected, they are simulated separately. In both cases, the Normality diagnostic determines the admissible innovation structure.
+
+This approach is consistent with the joint modeling of energy prices used to capture co-movements and substitution effects in studies such as \citet{tan2010day} and \citet{ibrahim2021geometric}.
+
+%=====================================================
+\subsection{Correlated case: joint simulation of $G_t$ and $GM_t$}
+\label{appendix:dependent_cases}
+%=====================================================
+
+If gas and electricity returns are significantly correlated, the model proceeds with joint simulation of $G_t$ and $GM_t$. At this point, the Normality diagnostic determines the candidate models.
+
+If Normality is not rejected, the simulation is restricted to bivariate models, and the preferred specification is selected using AIC and BIC. Two candidate models are considered.
+
+The first is a bivariate geometric Brownian motion:
+\begin{equation}
+        \begin{pmatrix} r_h^{(G)} \\ r_h^{(GM)} \end{pmatrix}
+        =
+        \begin{pmatrix} \mu_G \\ \mu_{GM} \end{pmatrix}
+        +
+        \begin{pmatrix} \sigma_G & 0 \\ 0 & \sigma_{GM} \end{pmatrix}
+        L \mathbf{z}_h,\qquad \mathbf{z}_h \sim \mathcal{N}(\mathbf{0}, I_2),
+\end{equation}
+where $L$ is the Cholesky factor of the correlation matrix and the means, volatilities, and correlation are estimated from the data. This type of multivariate lognormal representation is commonly used in energy and financial modeling to capture correlated stochastic dynamics between related commodities \citep{ibrahim2021geometric}.
+
+The second is a regression-based dependence model:
+\begin{equation}
+        r_t^{(GM)} = \alpha + \beta\, r_t^{(G)} + e_t,
+        \qquad e_t \sim \mathcal{N}(0,\sigma_e^2),
+\end{equation}
+where gas returns are simulated first and electricity returns are generated conditionally. This specification captures conditional dependence between energy prices and is consistent with reduced-form approaches used in energy price modeling such as those discussed by \citet{tan2010day}.
+
+If returns are correlated but Normality is rejected, the full model set is evaluated. In this branch, model choice is again based on AIC and BIC, but the admissible set is broader and includes specifications that allow heavy tails, autoregressive dynamics, and seasonality. The candidate models for the electricity component are:
+
+\begin{enumerate}
+    \item A regression-based dependence model:
+    \begin{equation}
+        r_t^{(GM)} = \alpha + \beta\, r_t^{(G)} + e_t,
+    \end{equation}
+    where $e_t$ may follow a Student-\emph{t} distribution.
+
+    \item A univariate AR--GARCH model:
+    \begin{align}
+        r_t^{(GM)} &= \alpha_0 + \sum_{j=1}^p \phi_j r_{t-j}^{(GM)} + \varepsilon_t,\\
+        \varepsilon_t &= \sigma_t z_t,\qquad z_t \sim \mathcal{D}_{GM},\\
+        \sigma_t^2 &= \omega + \alpha \varepsilon_{t-1}^2 + \beta \sigma_{t-1}^2.
+    \end{align}
+
+    \item A Fourier-based seasonal model:
+    \begin{equation}
+        r_t^{(GM)} = f_{\text{Fourier}}(m_t) + \varepsilon_t,
+    \end{equation}
+    where $m_t$ denotes the calendar month.
+
+    \item A monthly dummy regression:
+    \begin{equation}
+        r_t^{(GM)} = \alpha_0 + \sum_{m=2}^{12} \gamma_m \mathbb{I}\{m_t=m\} + \varepsilon_t.
+    \end{equation}
+
+    \item A Lucia--Schwartz-type reduced-form model inspired by \citet{lucia2002electricity}:
+    \begin{equation}
+        \log S_t^{(GM)} = f_t + x_t,
+    \end{equation}
+    with
+    \begin{equation}
+        x_t = a + b x_{t-1} + \varepsilon_t,
+        \qquad \varepsilon_t \sim \mathcal{N}(0,\sigma_\varepsilon^2),
+    \end{equation}
+    where $|b|<1$.
+\end{enumerate}
+
+Seasonal representations based on Fourier terms and calendar dummies are commonly used to capture periodic patterns in energy markets and electricity prices, as in \citet{lucia2002electricity}. More generally, the AR--GARCH specification follows the standard conditional-volatility framework introduced by \citet{engle1982autoregressive} and generalized by \citet{bollerslev1986generalized}, while the autoregressive identification logic is consistent with the Box--Jenkins approach described by \citet{box2015time}.
+
+All candidate models are estimated on the training sample, ranked using AIC and BIC, and the preferred specification is then re-estimated on the full sample for simulation.
+
+%=====================================================
+\subsection{Train--test split and information criteria}
+\label{appendix:model_selection_dep}
+%=====================================================
+
+When more than one specification is admissible, model selection is based on an out-of-sample train--test split. Approximately 80\% of the observations are used for estimation and 20\% are reserved for validation.
+
+For each model, the test-sample log-likelihood $\ell_{\text{test}}$ is computed, and the information criteria are defined as:
+\begin{align}
+    \mathrm{AIC} &= 2k - 2\ell_{\text{test}},\\
+    \mathrm{BIC} &= k \log n - 2\ell_{\text{test}},
+\end{align}
+where $k$ is the number of parameters and $n$ is the number of observations in the test sample. These criteria follow the standard formulations proposed by \citet{akaike2003new} and \citet{schwarz1978estimating}. The preferred specification is the one with the lowest BIC.
+
+After the preferred model is selected, it is subjected to an out-of-sample backtest. The parameters estimated on the training sample are used to simulate a distribution of paths over the validation window. The observed trajectory of $GM_t$ is then compared with the predictive intervals implied by the model. This provides an empirical check that the selected specification reproduces the observed dynamics with reasonable accuracy.
+
+Additional graphical diagnostics are also produced, including correlation matrices in levels and returns, and scatter plots of $(G_t,GM_t)$ and $(r_t^{(G)},r_t^{(GM)})$. These graphs are used for interpretation, but the formal selection rule remains based on BIC.
+
+%=====================================================
+\subsection{Independent simulation of $G_t$ and $GM_t$}
+\label{appendix:independent_simulation}
+%=====================================================
+
+If the correlation test does not reject $H_0:\rho_{G,GM}=0$, $G_t$ and $GM_t$ are simulated separately. In this branch, the Normality diagnostic determines whether the simulation uses standard univariate models or univariate models with heavy-tailed volatility.
+
+The simulation horizon is set to $H$ months, with $H=120$, and $N$ Monte Carlo paths are generated for each component.
+
+%-----------------------------------------------------
+\subsubsection{Independent case with approximately Normal returns}
+\label{appendix:independent_normal}
+%-----------------------------------------------------
+
+If returns are approximately Normal, the simulation proceeds with standard univariate models. Depending on the diagnostics for each series, these may take the form of geometric Brownian motion or autoregressive dynamics.
+
+For a component $c \in \{G,GM\}$, if the process is approximated by an independent return specification, future returns are generated as:
+\begin{equation}
+    r_{t+h}^{(c)} = \mu_c + \sigma_c Z_h,
+    \qquad Z_h \sim \mathcal{N}(0,1),
+\end{equation}
+and the corresponding price paths are reconstructed as:
+\begin{equation}
+    S_{t+h}^{(c)} = S_t^{(c)} \exp\!\left( \sum_{j=1}^h r_{t+j}^{(c)} \right).
+\end{equation}
+
+If serial dependence is present, the return process is represented through an autoregression:
+\begin{equation}
+    r_t^{(c)} = \alpha_0 + \sum_{j=1}^p \phi_j r_{t-j}^{(c)} + \varepsilon_t,
+    \qquad \varepsilon_t \sim \mathcal{N}(0,\sigma_\varepsilon^2).
+\end{equation}
+Future returns are then generated recursively from the estimated process. These specifications are consistent with the autoregressive representation of time-series dynamics developed in the Box--Jenkins framework \citep{box2015time}.
+
+%-----------------------------------------------------
+\subsubsection{Independent case with non-Normal returns}
+\label{appendix:independent_nonnormal}
+%-----------------------------------------------------
+
+If returns are not Normal, the simulation continues through univariate models with GARCH-type volatility and Student-\emph{t} innovations. In this branch, the basic return equation is:
+\begin{align}
+    r_t^{(c)} &= \mu_c + \varepsilon_t, \\
+    \varepsilon_t &= \sigma_t z_t,\qquad z_t \sim \mathcal{D}_{c}, \\
+    \sigma_t^2 &= \omega + \alpha \varepsilon_{t-1}^2 + \beta \sigma_{t-1}^2,
+\end{align}
+where $\mathcal{D}_{c}=t_\nu$ when heavy tails are required.
+
+If serial dependence is also present, the autoregressive mean is combined with GARCH volatility:
+\begin{align}
+    r_t^{(c)} &= \alpha_0 + \sum_{j=1}^p \phi_j r_{t-j}^{(c)} + \varepsilon_t,\\
+    \varepsilon_t &= \sigma_t z_t,\qquad z_t \sim \mathcal{D}_{c},\\
+    \sigma_t^2 &= \omega + \alpha \varepsilon_{t-1}^2 + \beta \sigma_{t-1}^2.
+\end{align}
+
+Future paths are simulated recursively by propagating both the conditional mean and the conditional variance. In all independent cases, the result is a collection of simulated trajectories $\{S_{t+h}^{(c,i)}\}$ for $i=1,\dots,N$. These specifications follow the ARCH framework proposed by \citet{engle1982autoregressive}, its GARCH extension by \citet{bollerslev1986generalized}, and the broader autoregressive logic described by \citet{box2015time}.
+
+%=====================================================
+\subsection{Tariff reconstruction under the regulatory framework}
+\label{appendix:tariff_reconstruction}
+%=====================================================
+
+Once the stochastic paths for $G_t$, $GM_t$, and $\pi_t$ are generated, they are translated into regulated end-user tariffs. This step follows the tariff formulas defined by the regulatory framework corresponding to the empirical application.
+
+Let $CU_t$ denote the residential electricity tariff in USD/kWh and $Cuv_t$ the residential natural gas tariff in USD/m$^3$. For each Monte Carlo path $i$ and month $t$, the simulated values $\{G_t^{(i)}, GM_t^{(i)}, \pi_t^{(i)}\}$ are introduced into the regulated tariff equations. Stochasticity therefore enters through these three drivers, while the remaining tariff components evolve deterministically according to regulatory rules, indexation mechanisms, and caps.
+
+This step produces a set of simulated end-user tariffs $\{CU_t^{(i)}, Cuv_t^{(i)}\}$, which are used in the cost calculations developed in the main methodology.
+
+%=====================================================
+\subsection{Outputs for downstream techno-economic analysis}
+\label{appendix:outputs}
+%=====================================================
+
+The output of the stochastic module is a set of Monte Carlo trajectories for monthly electricity and gas tariffs in USD. These trajectories summarize the range of possible future price paths under the regulatory framework defined in the empirical application. In the subsequent stages of the methodology, they are used to estimate stochastic total cost of ownership, greenhouse gas emissions, and marginal abatement costs for residential cooking electrification.
+
+This use of Monte Carlo simulation is consistent with standard approaches for propagating uncertainty in stochastic frameworks applied to energy systems and economic evaluation, such as those used by \citet{khamis2020} and \citet{babu2015}.
+
+%=====================================================
+\subsection{Price-responsive household demand adjustment}
+\label{appendix:demand_adjustment}
+%=====================================================
+
+After the simulated tariff paths are reconstructed, they are used to adjust household energy demand through a price-elasticity representation. This step introduces stochastic variation in per-user demand and allows emissions and abatement potential to vary across Monte Carlo paths.
+
+The demand adjustment follows the standard log-linear specification used in residential energy demand studies:
+\begin{equation}
+\ln Q_{x,t}^{(i)} = \alpha_x + \varepsilon_x \ln P_{x,t}^{(i)} + u_{x,t}^{(i)},
+\label{eq:appendix_loglinear_demand}
+\end{equation}
+where $Q_{x,t}^{(i)}$ is the household consumption of energy carrier $x$ in month $t$ and simulation path $i$, $P_{x,t}^{(i)}$ is the corresponding simulated end-user price, $\varepsilon_x$ is the price elasticity of residential energy demand, $\alpha_x$ is the intercept, and $u_{x,t}^{(i)}$ is the error term.
+
+In this paper, the elasticity parameter is not estimated from household-level panel data. Instead, it is taken from the residential electricity demand literature. In particular, \citet{espey2004turning} provide a meta-analysis of residential electricity demand elasticities and show that residential demand responds negatively to price changes, with stronger responses in the long run than in the short run. This evidence supports the use of an elasticity-based adjustment when the objective is to propagate price-induced demand variation into cost and emissions outcomes without estimating a complete behavioral demand system.
+
+For implementation, Eq.~\eqref{eq:appendix_loglinear_demand} is expressed relative to the baseline household consumption and baseline tariff:
+\begin{equation}
+Q_{x,t}^{(i)} =
+Q_{x,0}
+\left(
+\frac{P_{x,t}^{(i)}}{P_{x,0}}
+\right)^{\varepsilon_x},
+\label{eq:elasticity_demand}
+\end{equation}
+where $Q_{x,0}$ is the baseline household consumption of energy carrier $x$, and $P_{x,0}$ is the corresponding baseline tariff.
+
+Because residential energy demand is price-inelastic, $\varepsilon_x<0$. Therefore, when the simulated tariff $P_{x,t}^{(i)}$ increases relative to the baseline tariff $P_{x,0}$, the adjusted demand $Q_{x,t}^{(i)}$ decreases. Conversely, when the simulated tariff decreases, the adjusted demand increases. This mechanism allows the model to reflect the direction of household demand response to price changes while maintaining a parsimonious structure.
+
+The adjusted demand is then used in the operating-cost calculation:
+\begin{equation}
+OPEX_{x,t}^{(i)} = Price_{x,t}^{(i)} \times Consumption_{x,t}^{(i)},
+\end{equation}
+and in the emissions calculation:
+\begin{equation}
+GHG_x^{(i)} =
+EF_x \times StoveConsumption_x^{(i)}.
+\end{equation}
+
+Thus, tariff uncertainty affects the results through two channels. First, it directly changes the price paid by households. Second, it indirectly modifies household consumption through the elasticity-based demand adjustment. This makes TCO, GHG emissions, abatement potential, and MAC values stochastic outcomes.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Additional case-study context}
+\label{appendix:case_context}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+This appendix reports additional descriptive evidence used to characterize the Colombian residential natural gas and electricity context. These figures support the case-study discussion but are not required for the main interpretation of the TCO, fiscal, emissions, and MAC results.
+
+%=====================================================
+\subsection{National natural gas context}
+\label{appendix:national_gas_context}
+%=====================================================
+
+The residential natural gas market analyzed in this paper is part of a broader Colombian gas system that includes domestic production, imports, transportation, distribution, and final consumption across multiple sectors. Figure~\ref{fig:natgas-donut} shows the average distribution of natural gas consumption by sector for 2006--2024. The industrial sector accounts for the largest share of demand, while the residential sector represents 26.9\% of total consumption. This share is relevant because residential gas use is not a marginal component of the national gas system. Therefore, policies that affect residential cooking technologies can have implications beyond individual households, including effects on gas demand, tariff revenues, subsidy flows, and exposure to gas-supply risks.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\linewidth]{NatGasCons.png}
+\caption{\textbf{Natural gas consumption by sector in Colombia (average 2006--2024).}
+The figure presents the sectoral distribution of national natural gas demand, highlighting the role of the industrial and residential sectors, followed by transport, commercial and public consumption, mining, and other uses. Source: authors' elaboration based on \citet{UPME_BECO_2026}.}
+\label{fig:natgas-donut}
+\end{figure}
+
+Figure~\ref{fig:supply_chain} summarizes the structure of the Colombian natural gas supply chain. Domestic production and imports enter the system upstream and converge before final distribution to residential, commercial, industrial, transport, refinery, thermal power, and compressor-station users. This structure matters for the proposed framework because residential tariffs are not treated as purely exogenous market prices. Instead, they are interpreted as outcomes of regulated formulas that transfer supply, transportation, distribution, commercialization, technical adjustments, and macroeconomic indexation to end users.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{\detokenize{Gas Supply Chain.png}}
+\caption{\textbf{Natural gas supply chain in Colombia.}
+Domestic production and imports converge before the citygate and distribution stage, from which gas is delivered to residential, commercial, transport, refinery, thermal power, industrial, and compressor-station users. Source: authors' elaboration based on \citet{cabrales2023costos}.}
+\label{fig:supply_chain}
+\end{figure}
+
+The upstream structure shown in Figure~\ref{fig:supply_chain} is important for interpretation because changes in gas supply conditions, including increased reliance on imports, may be transmitted to households through the regulated tariff structure.
+
+%=====================================================
+\subsection{Residential gas subscribers}
+\label{appendix:residential_gas_subscribers}
+%=====================================================
+
+Administrative records on residential gas subscribers are used to characterize both the scale and the spatial distribution of residential gas use in Colombia. Subscriber counts vary significantly across territories, reflecting differences in infrastructure deployment, demographic concentration, and urban development.
+
+Over the last two decades, Colombia's residential natural gas network has expanded substantially \citep{cabrales2025subsidios_gas}. At the same time, the distribution of connected households remains strongly concentrated in a limited set of departments where urban density and gas infrastructure coincide. Figure~\ref{fig:gas-users-department} illustrates this pattern by comparing the number of residential gas users by department in 2005 and in the last year with available data.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.90\linewidth]{HeatMapGasUsers.png}
+\caption{\textbf{Residential gas connections by department in Colombia (2005 vs.\ last year with available data).}
+The maps report the total number of connected residential gas users aggregated at the departmental level. Darker shades indicate a higher number of users. The blue marker highlights the location of Bogotá, which serves as the benchmark case study. Source: authors' elaboration based on SUI data.}
+\label{fig:gas-users-department}
+\end{figure}
+
+Figure~\ref{fig:gas-users-department} shows two stylized facts. First, residential gas service expanded geographically between 2005 and the latest year for which data are available, reflecting the progressive extension of the distribution network across the country. Second, despite this expansion, the bulk of residential subscribers remains concentrated around the largest urban systems and their surrounding municipalities. In practice, regulated residential gas demand is concentrated in metropolitan areas such as Barranquilla, Bogotá, Bucaramanga, Cali, Cartagena, Cúcuta, Ibagué, Medellín, Soacha, and Soledad.
+
+In addition to its geographic concentration, the residential gas market shows a clear pattern of sustained growth together with marked socioeconomic stratification, as shown in Figures~\ref{fig:national-users} and \ref{fig:donut-strata}. The number of regulated residential users increased from approximately 3.57 million in 2005 to more than 10.41 million in 2022 (Figure~\ref{fig:national-users}). This expansion is largely explained by the progressive rollout of gas infrastructure and by policies aimed at increasing access, particularly among lower-income households. Unless otherwise stated, the descriptive figures reported in this appendix are based on official SUI data processed by the authors and aligned to the December~2022 snapshot.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.98\linewidth]{AnnualResGas.png}
+\caption{Residential gas subscribers (national, December of each year).}
+\label{fig:national-users}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.64\linewidth]{ResGasSuscribers.jpg}
+\caption{Residential gas subscribers by stratum (snapshot, 2022--12).}
+\label{fig:donut-strata}
+\end{figure}
+
+Two elements are particularly important for the empirical strategy. First, the steady expansion of the residential user base. Second, the tariff structure based on socioeconomic stratification. This setup makes stratum~4 a natural benchmark, as it allows the identification of regulated cost signals without the direct effect of subsidies or surcharges. From there, the analysis can be extended to assess distributional effects across subsidized and contributing strata.
+
+%=====================================================
+\subsection{Additional energy-cost comparisons}
+\label{appendix:additional_energy_costs}
+%=====================================================
+
+Residential gas prices differ across cities because supply conditions, transportation costs, and local distribution costs vary. To facilitate cross-energy comparisons, the residential gas unit cost (Cuv) is expressed on a common energy basis in USD/MMBtu.
+
+Figure~\ref{fig:cons-price-city} jointly presents consumption per subscriber and the average residential gas unit cost, Cuv, in USD/MMBtu for the ten cities with the largest residential gas-user base. This joint representation highlights that higher consumption does not necessarily coincide with higher unit costs. In the results section, the baseline estimates are reported first for Bogotá stratum~4 and then extended through comparisons across strata and cities.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.92\linewidth]{GasConsumptionandPrice.png}
+\caption{Gas consumption per subscriber (bars) and average unit cost—Cuv (dots) by city (2022--12) for the ten cities with the largest residential gas user base. Unit cost is expressed in USD/MMBtu.}
+\label{fig:cons-price-city}
+\end{figure}
+
+A direct comparison between natural gas and electricity tariffs is not possible in their original physical units, since one is charged in USD/m$^3$ and the other in USD/kWh. For that reason, both series are converted to a common energy basis in USD/MMBtu. Figure~\ref{fig:energy-cost-comparison} reports the residential gas tariff (Cuv) and the residential electricity tariff (CU) in USD/MMBtu for Bogotá stratum~4 without efficiency adjustment. This normalization allows a direct comparison of purchased energy costs over time.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\linewidth]{ComparaGasElecSinCorr.png}
+\caption{\textbf{Comparison of residential energy costs in Bogotá (USD/MMBtu).}
+Monthly evolution of natural gas (Cuv) and electricity (CU) tariffs converted to a common energy basis.}
+\label{fig:energy-cost-comparison}
+\end{figure}
+
+Table~\ref{tab:energy-cost-bogota} complements the graphical evidence with descriptive statistics for the Bogotá stratum~4 benchmark. Both natural gas and electricity exhibit time variation, but electricity is systematically more expensive on a common purchased-energy basis. This persistent gap is one of the central empirical features that motivates the evaluation of electrification through both efficiency corrections and stochastic tariff simulation.
+
+\begin{table}[H]
+\centering
+\caption{\textbf{Descriptive statistics of residential energy unit costs in Bogotá (stratum~4)} expressed in USD/MMBtu (non-efficiency-adjusted basis).}
+\label{tab:energy-cost-bogota}
+\resizebox{0.98\linewidth}{!}{
+\begin{tabular}{lrrrrrrrrr}
+\toprule
+\textbf{Energy carrier} & \textbf{Count} & \textbf{Mean} & \textbf{Min} & \textbf{Max} & \textbf{Std} & \textbf{Q1} & \textbf{Q3} & \textbf{Skew.} & \textbf{Kurt.} \\
+\midrule
+Natural gas (Cuv) & 125 & 16.02 & 12.22 & 23.79 & 2.50 & 14.51 & 16.37 & 1.4445 & 1.9369 \\
+Electricity (CU)  & 150 & 41.27 & 27.60 & 68.56 & 9.92 & 32.88 & 46.54 & 0.9354 & 0.1806 \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+%=====================================================
+\subsection{Additional regulated tariff details}
+\label{appendix:additional_tariff_details}
+%=====================================================
+
+Residential natural gas tariffs in Colombia are defined and periodically updated according to CREG methodologies. Transportation charges ($T_m$) are typically indexed to the Producer Price Index (IPP), distribution costs ($D_m$) and commercialization-related components may be updated through Consumer Price Index (IPC) indexation, and the supply component ($G_m$) reflects procurement conditions that may be exposed to international price dynamics and exchange-rate movements. Technical parameters such as the loss factor ($\rho_m$) and calorific adjustment ($fpc_m$) are also embedded in the tariff formulation \citep{CREG137_2013,CREG183_2013,CREG184_2014}.
+
+Figure~\ref{fig:price-gas-bog-e4} reports the monthly evolution of the residential natural gas unit cost (Cuv) in Bogotá for stratum~4, expressed in USD/MMBtu. Because stratum~4 is not affected by subsidies or contributions, this series approximates the underlying regulated gas-cost signal used in the baseline analysis.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\linewidth]{PGasBogota.png}
+\caption{\textbf{Monthly evolution of the residential natural gas unit cost (Cuv) in Bogotá (stratum~4).}
+The figure reports the historical trajectory of Cuv expressed in USD/MMBtu for the benchmark case study used in the baseline analysis.}
+\label{fig:price-gas-bog-e4}
+\end{figure}
+
+Residential electricity tariffs are defined through a multi-component structure that includes generation, transmission, distribution, commercialization, recognized losses, and restriction costs \citep{CREG119_2007}. The generation component ($GM_m$) reflects energy procurement through wholesale markets and bilateral contracts, while network and commercialization components are regulated and may incorporate macroeconomic indexation. These mechanisms imply that electricity tariffs evolve through both market-based and regulated channels.
+
+Figure~\ref{fig:price-elec-bog-e4} reports the monthly evolution of the residential electricity unit cost (CU) in Bogotá for stratum~4, expressed in USD/MMBtu. As in the gas case, focusing on stratum~4 helps isolate the regulated cost signal from the direct effects of subsidies and contributions.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\linewidth]{PElecBog.png}
+\caption{\textbf{Monthly evolution of the residential electricity unit cost (CU) in Bogotá (stratum~4).}
+The figure reports the historical trajectory of CU expressed in USD/MMBtu for the benchmark case study used in the baseline analysis.}
+\label{fig:price-elec-bog-e4}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Stochastic diagnostics and model-selection results}
+\label{appendix:stochastic_diagnostics}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Table~\ref{tab:sim_corr_diag} summarizes the main diagnostic results. Two findings are especially relevant. First, the log-returns of $G_t$ and $GM_t$ show statistically significant dependence, which supports the use of a correlated specification rather than treating both processes as independent. Second, the adequacy tests indicate that the gas component shows no strong evidence of autocorrelation or conditional heteroscedasticity, but does depart from Normality. This combination supports representing $G_t$ as an approximately independent process under a relaxed GBM-type structure with heavy-tailed innovations. 
+
+For the electricity generation component, the diagnostics reported in Table~\ref{tab:sim_corr_diag} lead to a different implication. Although the series also satisfies the relaxed adequacy conditions for autocorrelation and heteroscedasticity, the rejection of Normality and the observed dependence with $G_t$ suggest that $GM_t$ should not be modeled as a simple standalone process. Instead, the results justify evaluating a broader set of dependent and reduced-form alternatives, as established in the methodology.
+
+\begin{table}[H]
+\centering
+\caption{Dependence and diagnostic results for the stochastic tariff drivers in Bogotá}
+\label{tab:sim_corr_diag}
+\begin{tabular}{llc}
+\toprule
+\textbf{Block} & \textbf{Indicator} & \textbf{Result} \\
+\midrule
+\multirow{1}{*}{Dependence between $G_t$ and $GM_t$} 
+& Pearson correlation of log-returns & 0.374 \\
+\midrule
+\multirow{6}{*}{Natural gas supply component ($G_t$)} 
+& Monthly volatility, $\sigma_{monthly}$ & 0.017543 \\
+& Annualized reference volatility, $\sigma_{annualized}$ & 0.060770 \\
+& Ljung--Box $p$-value & 0.3960 \\
+& ARCH test $p$-value & 0.2558 \\
+& Jarque--Bera $p$-value & 0.0076 \\
+& Shapiro--Wilk $p$-value & 0.0000 \\
+\midrule
+\multirow{4}{*}{Electricity generation component ($GM_t$)} 
+& Ljung--Box $p$-value & 0.9150 \\
+& ARCH test $p$-value & 0.1096 \\
+& Jarque--Bera $p$-value & 0.0040 \\
+& Shapiro--Wilk $p$-value & 0.0000 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Table~\ref{tab:model_selection_gm} reports the out-of-sample comparison of the candidate models evaluated for $GM_t$. The ranking shows that the regression-based dependence model with gas prices (REG\_GBM) dominates the alternative specifications according to the information-criterion comparison, and particularly under the BIC decision rule adopted in this paper. This result indicates that, in the Bogotá case, the electricity generation component is better represented when its dynamics are jointly modeled with the natural gas supply component than when it is approximated purely seasonal or standalone reduced-form alternatives.
+
+In substantive terms, the selected model implies that the co-movement between both tariff drivers contains relevant predictive information. This is consistent with the empirical evidence reported in Table~\ref{tab:sim_corr_diag} and provides the basis for using a dependence-based specification in the stochastic simulation stage.
+
+\begin{table}[H]
+\centering
+\caption{Model comparison for the electricity generation component ($GM_t$) in Bogotá}
+\label{tab:model_selection_gm}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Candidate model} & \textbf{Log-likelihood} & \textbf{AIC} & \textbf{BIC} \\
+\midrule
+REG\_GBM        & 80.63 & -155.25 & -149.77 \\
+FOURIER\_UNIV   & 78.34 & -148.67 & -141.36 \\
+DUMMIES\_UNIV   & 77.06 & -128.13 & -104.36 \\
+LS\_OU\_1F      & 63.78 & -121.56 & -116.07 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Figure~\ref{fig:backtest-gm} provides a graphical validation of the selected specification for $GM_t$. The observed trajectory in the test window falls within the simulated prediction interval, supporting the adequacy of the chosen model in out-of-sample terms. Beyond reproducing the series' central tendency, the selected specification also captures the range of variation observed during the validation period, including episodes of higher values near the end of the sample. This result reinforces the model-selection evidence reported in Table~\ref{tab:model_selection_gm}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.78\textwidth]{BacktestSimGenElec.png}
+    \caption{\textbf{Graphical backtest of the selected simulation model for the electricity generation component ($GM_t$).} The observed values in the test period fall within the simulated prediction intervals, supporting the adequacy of the model selected based on AIC/BIC criteria.}
+    \label{fig:backtest-gm}
+\end{figure}
+
+Figure~\ref{fig:sim-g-gm} presents the historical series and forward simulations for both tariff drivers. In the natural gas case, the simulated paths preserve the broad scale historical variation while showing a moderate widening of the uncertainty band over time. This behavior is consistent with the earlier diagnostics: the process shows little persistence or conditional volatility, but it does require a non-Gaussian innovation structure.
+
+For the electricity generation component, the simulated band is visibly wider. This reflects the larger uncertainty associated with electricity generation costs in Bogotá and the fact that the preferred specification explicitly incorporates the dependence between $GM_t$ and $G_t$. From an economic standpoint, this result is especially important because electricity prices determine the main operating-cost component of the electrification scenario. Hence, the wider uncertainty band for $GM_t$ is one of the main channels through which stochastic variation propagates into TCO and MAC outcomes.
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.49\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{SimGenGas.png}
+        \caption{Natural gas supply component ($G_t$).}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.49\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{SimGenElec.png}
+        \caption{Electricity generation component ($GM_t$).}
+    \end{subfigure}
+    \caption{\textbf{Historical series and simulated trajectories for the main tariff drivers in Bogotá.}}
+    \label{fig:sim-g-gm}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Additional fiscal, MACC, and imported-gas scenario results}
+\label{appendix:fiscalMACCandimportedgas}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Table~\ref{tab:fiscal_impact} reveals a clear redistribution pattern across socioeconomic strata. Under BAU, lower-income households represent a fiscal cost because they receive subsidies, while higher-income households generate fiscal revenues through contributions. This is reflected in the positive BAU values for Strata 1 and 2, the neutral position of Strata 3 and 4, and the negative BAU values for Strata 5 and 6.
+
+Once electrification is introduced, the fiscal effect changes direction depending on the stratum. For Strata 1 and 2, electrification generates fiscal savings, as indicated by the negative deterministic and stochastic values. This means that part of the subsidy burden currently associated with gas consumption is reduced when households switch to induction cooking. By contrast, for Strata 5 and 6, electrification produces a positive fiscal effect, representing forgone public revenues from the reduction in contribution payments previously associated with gas consumption. Strata 3 and 4 remain close to fiscal neutrality, as expected from their position in the tariff structure.
+
+\begin{table}[H]
+\centering
+\caption{Fiscal impact per household of cooking electrification under different scenarios}
+\label{tab:fiscal_impact}
+
+\resizebox{\textwidth}{!}{
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Stratum} & \textbf{BAU} & \textbf{Deterministic} & \textbf{Stochastic mean} & \textbf{Stochastic (95\% CI)} \\
+\textit{Units} & (USD/user) & (USD/user) & (USD/user) & (USD/user) \\
+\midrule
+E1 & 676.36 & -573.24 & -853.58 & [-964.73,\,-744.54] \\
+E2 & 473.66 & -400.17 & -620.95 & [-701.81,\,-541.63] \\
+E3 & 0.00 & 18.91 & 22.73 & [17.82,\ 29.39] \\
+E4 & 0.00 & 0.00 & 0.00 & [0.00,\ 0.00] \\
+E5 & -296.20 & 257.13 & 310.64 & [270.96,\ 351.09] \\
+E6 & -950.29 & 890.62 & 474.83 & [389.11,\ 562.46] \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+The deterministic curve in Figure~\ref{fig:macc-deter} already shows this result. The absolute magnitude of the MAC increases as one moves from lower to higher strata, reflecting the fact that households with higher baseline consumption generate larger savings per unit of abatement. In the stochastic mean and stochastic median curves, this pattern remains essentially unchanged. The ordering of strata is stable, which means that uncertainty does not alter the relative ranking of the intervention across the socioeconomic distribution.
+
+Another important feature is the cumulative-abatement structure of the MACC. Higher strata contribute more strongly to total abatement potential because their annual emissions reductions are larger. As a result, the right-hand side of the curve is dominated by Stratum 5 and Stratum 6. In policy terms, this means that upper-income strata play a disproportionate role in aggregate emissions reduction, even though electrification remains economically attractive across the entire distribution.
+
+The similarity between Figures~\ref{fig:macc-mean} and \ref{fig:macc-p50} is also informative. Since the mean-based and median-based MACCs are close to each other, the stochastic distributions do not appear to be heavily skewed in a way that would overturn the central interpretation of the results. Instead, uncertainty mainly changes the scale of the bars, while leaving the qualitative shape of the curve intact.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.88\textwidth]{MACCBogDeter.png}
+    \caption{\textbf{Deterministic MACC based on historical data.}}
+    \label{fig:macc-deter}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.88\textwidth]{MACCBogP50Elec.png}
+    \caption{\textbf{MACC based on median (P50) stochastic MAC values.}}
+    \label{fig:macc-p50}
+\end{figure}
+
+Table~\ref{tab:import_scenarios_tco_det} shows that higher import dependence substantially increases the cost of remaining in the BAU gas-cooking alternative. Under the 50\% imported-gas scenario, deterministic $\Delta TCO$ ranges from USD $-590.80$ per household in Stratum~1 to USD $-3970.30$ in Stratum~6. Under full import dependence, the savings become even larger, ranging from USD $-894.81$ in Stratum~1 to USD $-5406.25$ in Stratum~6. These results confirm that gas-import exposure strengthens the private economic case for induction cooking across all socioeconomic strata.
+
+\begin{table}[htbp]
+\centering
+\caption{TCO under imported-gas scenarios in Bogotá: BAU gas cost and deterministic $\Delta TCO$}
+\label{tab:import_scenarios_tco_det}
+\resizebox{\textwidth}{!}{
+\begin{tabular}{llrr}
+\toprule
+\textbf{Scenario} 
+& \textbf{Stratum} 
+& $TCO_{\mathrm{BAU,gas}}$ (USD/user) 
+& $\Delta TCO_{\mathrm{det}}$ (USD/user) \\
+\midrule
+50\% imported gas & E1 & 983.44  & -590.80 \\
+50\% imported gas & E2 & 1027.38 & -627.82 \\
+50\% imported gas & E3 & 1382.18 & -958.14 \\
+50\% imported gas & E4 & 1702.25 & -1230.11 \\
+50\% imported gas & E5 & 2569.79 & -2018.54 \\
+50\% imported gas & E6 & 4645.17 & -3970.30 \\
+\midrule
+100\% imported gas & E1 & 1287.45 & -894.81 \\
+100\% imported gas & E2 & 1344.97 & -945.41 \\
+100\% imported gas & E3 & 1809.45 & -1385.41 \\
+100\% imported gas & E4 & 2228.46 & -1756.33 \\
+100\% imported gas & E5 & 3364.19 & -2812.94 \\
+100\% imported gas & E6 & 6081.13 & -5406.25 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+The MAC results in Table~\ref{tab:import_scenarios_macc_ci} remain negative across all strata and under both imported-gas scenarios. Under the 50\% imported-gas scenario, deterministic MAC values range from USD $-192.60$/tCO$_2$e in Stratum~1 to USD $-776.15$/tCO$_2$e in Stratum~6. In the stochastic evaluation, mean MAC values range from USD $-176.90$/tCO$_2$e to USD $-771.74$/tCO$_2$e, and the 95\% intervals remain entirely below zero for all strata.
+
+Under the 100\% imported-gas scenario, the MAC values become even more negative. Deterministic MAC values range from USD $-291.71$/tCO$_2$e in Stratum~1 to USD $-1056.86$/tCO$_2$e in Stratum~6. The stochastic mean ranges from USD $-272.15$/tCO$_2$e in Stratum~1 to USD $-1054.91$/tCO$_2$e in Stratum~6, with all 95\% intervals remaining below zero. Relative to the baseline case, both imported-gas scenarios shift the MAC distribution downward because the BAU gas-cooking alternative becomes more expensive. This effect is stronger under full import dependence, where the stochastic mean MAC reaches USD $-1054.91$/tCO$_2$e in Stratum~6. Therefore, greater gas-import dependence increases the monetary savings per ton of CO$_2$e avoided.
+
+\begin{table}[htbp]
+\centering
+\caption{MAC under imported-gas scenarios in Bogotá: deterministic MAC and stochastic MAC distribution}
+\label{tab:import_scenarios_macc_ci}
+\resizebox{\textwidth}{!}{
+\begin{tabular}{llccc}
+\toprule
+\textbf{Scenario} 
+& \textbf{Stratum}  
+& $MAC_{\mathrm{det}}$ (USD/tCO$_2$e) 
+& $\overline{MAC}_{\mathrm{stoch}}$ (USD/tCO$_2$e)
+& 95\% CI (USD/tCO$_2$e) \\
+\midrule
+50\% imported gas & E1 & -192.60 & -176.90 & [-217.78,\,-137.71] \\
+50\% imported gas & E2 & -234.46 & -219.46 & [-277.89,\,-165.72] \\
+50\% imported gas & E3 & -443.28 & -559.63 & [-683.87,\,-445.36] \\
+50\% imported gas & E4 & -462.10 & -581.40 & [-678.36,\,-492.70] \\
+50\% imported gas & E5 & -602.74 & -739.45 & [-886.48,\,-604.21] \\
+50\% imported gas & E6 & -776.15 & -771.74 & [-918.77,\,-636.50] \\
+\midrule
+100\% imported gas & E1 & -291.71 & -272.15 & [-323.53,\,-224.51] \\
+100\% imported gas & E2 & -353.06 & -331.99 & [-410.16,\,-260.23] \\
+100\% imported gas & E3 & -640.95 & -795.61 & [-960.20,\,-646.09] \\
+100\% imported gas & E4 & -659.77 & -819.52 & [-942.80,\,-707.51] \\
+100\% imported gas & E5 & -839.95 & -1022.62 & [-1219.35,\,-842.05] \\
+100\% imported gas & E6 & -1056.86 & -1054.91 & [-1251.65,\,-874.35] \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\bibliographystyle{elsarticle-harv}
+\bibliography{ecooking_refs}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
